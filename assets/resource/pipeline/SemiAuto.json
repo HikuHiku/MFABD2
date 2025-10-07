@@ -178,7 +178,8 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "SemiAuto_Evil_SemiautoTower_OnCk"
+      "SemiAuto_Evil_SemiautoTower_OnCk",
+      "SemiAuto_Evil_SemiautoTower_On"
     ],
     "roi": [
       1043,
@@ -186,6 +187,8 @@
       118,
       38
     ],
+    "post_delay": 800,
+    "post_wait_freezes": 1000,
     "expected": [
       "进入第"
     ]
@@ -233,10 +236,28 @@
       0
     ]
   },
+  "SemiAuto_Evil_SemiautoTower_AuDaemon": {
+    "recognition": "OCR",
+    "focus": "手操救场了？再给你10秒哦~",
+    "next": [
+      "SemiAuto_Evil_SemiautoTower_InManual"
+    ],
+    "pre_delay": 10000,
+    "roi": [
+      1035,
+      624,
+      81,
+      45
+    ],
+    "expected": [
+      "URN"
+    ]
+  },
   "SemiAuto_Evil_SemiautoTower_InAuto": {
     "recognition": "OCR",
     "next": [
       "SemiAuto_Evil_SemiautoTower_ToNextRound",
+      "SemiAuto_Evil_SemiautoTower_AuDaemon",
       "SemiAuto_Evil_SemiautoTower_InAuto",
       "SemiAuto_Evil_SemiautoTower_Defeat"
     ],
@@ -255,7 +276,8 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "SemiAuto_Evil_SemiautoTower_OnCk"
+      "SemiAuto_Evil_SemiautoTower_OnCk",
+      "SemiAuto_Evil_SemiautoTower_ToNextRound"
     ],
     "post_delay": 500,
     "roi": [
@@ -265,7 +287,7 @@
       36
     ],
     "expected": [
-      "前往下一层"
+      "前往下"
     ]
   },
   "SemiAuto_Evil_SemiautoTower_OnCk2": {

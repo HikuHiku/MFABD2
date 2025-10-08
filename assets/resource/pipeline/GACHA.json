@@ -237,7 +237,7 @@
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [
-      "Gacha_TouchGacha",
+      "Gacha_TouchFreeGacha",
       "Gacha_FindFreeGacha"
     ],
     "on_error": [
@@ -273,7 +273,8 @@
       "Gacha_PaidDiamond_90LotFind_Tp1"
     ],
     "on_error": [
-      "Gacha_Slip"
+      "Gacha_Slip",
+      "Gacha_TouchFreeGacha"
     ],
     "roi": [
       624,
@@ -293,7 +294,8 @@
       "Gacha_PaidDiamond_90LotFind_Tp2"
     ],
     "on_error": [
-      "Gacha_Slip"
+      "Gacha_Slip",
+      "Gacha_TouchFreeGacha"
     ],
     "roi": [
       358,
@@ -316,7 +318,8 @@
     ],
     "focus": "GB.90.**[高危-付费抽]**tp2/3-费用90已确认",
     "on_error": [
-      "Gacha_Slip"
+      "Gacha_Slip",
+      "Gacha_TouchFreeGacha"
     ],
     "roi": [
       624,
@@ -333,10 +336,11 @@
     "action": "Click",
     "focus": "GB.90.**[高危-付费抽]**tp3/3-付费抽类型可确认",
     "next": [
-      "Gacha_PaidDiamond_90LotFind_Pay"
+      "Gacha_TouchFreeGachaConfirmMenu"
     ],
     "on_error": [
-      "Gacha_Slip"
+      "Gacha_Slip",
+      "Gacha_TouchFreeGacha"
     ],
     "post_delay": 1000,
     "roi": [
@@ -360,7 +364,8 @@
       "Gacha_PaidDiamond_90LotFind_Pay"
     ],
     "on_error": [
-      "Gacha_Slip"
+      "Gacha_Slip",
+      "Gacha_TouchFreeGacha"
     ],
     "post_delay": 1000,
     "roi": [
@@ -371,14 +376,15 @@
     ],
     "expected": [
       "购买"
-    ]
+    ],
+    "doc": "废弃"
   },
-  "Gacha_TouchGacha": {
+  "Gacha_TouchFreeGacha": {
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "Gacha_TouchGachaConfirm",
-      "Gacha_TouchGacha"
+      "Gacha_TouchFreeGachaConfirmMenu",
+      "Gacha_TouchFreeGacha"
     ],
     "on_error": [
       "Gacha_Slip"
@@ -396,43 +402,44 @@
     ],
     "doc": "点击右下抽卡"
   },
-  "Gacha_TouchGachaConfirm": {
+  "Gacha_TouchFreeGachaConfirmMenu": {
     "recognition": "OCR",
     "next": [
-      "Gacha_TouchGachaConfirm2",
-      "Gacha_TouchGachaConfirm"
+      "Gacha_TouchFreeGachaBuy",
+      "Gacha_TouchFreeGachaConfirmMenu"
     ],
     "roi": [
-      464,
-      256,
-      350,
-      227
+      536,
+      185,
+      201,
+      129
     ],
     "expected": [
-      "免费1次"
+      "确认抽抽乐"
     ],
-    "doc": "确认抽卡"
+    "focus": "GA-弹出式菜单已确认(调试用)",
+    "doc": "抽卡菜单弹出,已确认"
   },
-  "Gacha_TouchGachaConfirm2": {
+  "Gacha_TouchFreeGachaBuy": {
     "recognition": "OCR",
     "action": "Click",
     "next": [
       "Gacha_5X",
       "Gacha_5X2",
-      "Gacha_TouchGachaConfirm2",
+      "Gacha_TouchFreeGachaBuy",
       "Gacha_GachaResultBack"
     ],
     "post_delay": 5000,
     "roi": [
-      643,
-      401,
-      137,
-      82
+      635,
+      410,
+      200,
+      135
     ],
     "expected": [
       "购买"
     ],
-    "doc": "确认抽卡"
+    "doc": "GA.抽卡"
   },
   "Gacha_5X": {
     "recognition": "OCR",

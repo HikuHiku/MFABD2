@@ -785,7 +785,7 @@
 			"cases": [
 				{
 					"name": "No",
-					"pipeline_override": {},
+					"pipeline_override": {}
 				},
 				{
 					"name": "Yes",

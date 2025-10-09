@@ -582,13 +582,13 @@
     "recognition": "OCR",
     "focus": "BB.地图复位确认-默认位置",
     "roi": [
-      549,
-      338,
-      171,
-      87
+      199,
+      45,
+      180,
+      52
     ],
     "expected": [
-      "野猪洞穴"
+      "可以获得"
     ]
   },
   "Battle_CollectMapInitializeE": {

@@ -9,6 +9,7 @@
 [![月提交](https://img.shields.io/github/commit-activity/m/sunyink/MFABD2?label=开发活跃度&color=blue)](https://github.com/sunyink/MFABD2/commits/main)
 [![给项目点赞](https://img.shields.io/github/stars/sunyink/MFABD2?style=social&label=给项目点赞)](https://github.com/sunyink/MFABD2)
 <br>
+<a href="https://mirrorchyan.com/zh/projects?rid=MFABD2" target="_blank"><img alt="mirrorc" src="https://img.shields.io/badge/Mirror%E9%85%B1-%239af3f6?logo=countingworkspro&logoColor=4f46e5"></a>
 [![构建状态](https://img.shields.io/badge/构建状态-通过-success?logo=githubactions)](https://github.com/sunyink/MFABD2/actions)
 [![最新版本](https://img.shields.io/github/v/release/sunyink/MFABD2?label=最新版本&logo=github&color=green)](https://github.com/sunyink/MFABD2/releases)
 </div>
@@ -26,8 +27,6 @@
 
 
 ### 版本区分
-
-> **目前决定分两个版本。**
   
 #### 稳定版
 
@@ -42,7 +41,7 @@
 **[MFABD2-Fast分支]** `快速版`: [github.com/sunyink/MFABD2-Fast](https://github.com/sunyink/MFABD2/tree/Fast)
   
 
-  快速版，曾经的主要开发分支，旧界面（类似maa老UI）**使用git更新**，可以选择比较稳定的提交来用。
+  快速版，WPF旧版框架，**使用git更新**，可以选择比较稳定的提交来用。
   </details>
 <br>
 
@@ -66,7 +65,8 @@
 
 ### ◆稳定版部署
 + 进入 **[MFABD2-Resource]发行版页** : [github.com/sunyink/MFABD2-Resource](https://github.com/sunyink/MFABD2-Resource/releases)，下载对应平台压缩包，解压即用。
-  
+
++ `v2.1.0`之后，UI内可以直接获得更新信息。
 
 
 ### ◆快速版部署
@@ -95,7 +95,7 @@
   
   2.在弹出窗口中运行`git pull`
 
-**注意，快速版不要开启、使用GUI界面本身的更新功能，此版本应仅进行GitHub Code更新同步。** _重组改版后，逻辑上可以点Gui更新，但快速版一般都领先于发行版，所以行为没有意义。_
+**注意，快速版不要开启、使用GUI界面本身的更新功能，此版本应仅进行GitHub Code更新同步。** _重组改版后，逻辑上可以点Gui更新，但不推荐。_
 
 <br>
 
@@ -149,7 +149,7 @@
   * [x] (启动自动获取)宠物派遣
   * [X] 扫荡
     * [X] 狩猎场关卡选择 
-    * [X] 冒险航线策略、次数选择 （完善中）
+    * [X] 冒险航线策略、次数选择
     * [X] 圣石洞穴
       * [x]  属性选择
       * [x]  均衡刷取
@@ -180,8 +180,10 @@
 
 * [X] 活动图
   * [X] 关卡扫荡
-    * [ ] 小游戏扫荡(平时应关闭)
     * [X] 难度选择（普通\挑战）
+    * [X] 魔兽补刀
+    * [ ] 小游戏扫荡(平时应关闭)
+    
 
 ### 致谢
 

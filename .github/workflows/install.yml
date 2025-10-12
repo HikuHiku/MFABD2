@@ -39,7 +39,7 @@ jobs:
             tag="${GITHUB_REF#refs/tags/}"
           else
             # 非标签推送：生成开发版本号
-            latest_tag=$(git describe --tags --极速下载match "v*" --abbrev=0 2>/dev/null || echo "v0.0.0")
+            latest_tag=$(git describe --tags --match "v*" --abbrev=0 2>/dev/null || echo "v0.0.0")
             commit_short=$(git rev-parse --short HEAD)
             date_suffix=$(date +"%y%m%d")
             tag="${latest_tag}-ci.${date_suffix}-${commit_short}"
@@ -183,6 +183,11 @@ jobs:
           prerelease: ${{ needs.meta.outputs.is_dev_version == 'true' }}
         env:  # 添加环境变量以支持高限额API调用
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Trigger MirrorChyanUploading
         if: github.repository_owner == 'sunyink' && ((needs.meta.outputs.is_tag_push == 'true') || (github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && needs.meta.outputs.is_dev_version == 'true'))

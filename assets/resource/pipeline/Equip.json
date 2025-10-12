@@ -144,8 +144,7 @@
       "Equip_EquipMakeClose",
       "Equip_EquipMake"
     ],
-    "post_delay": 5000,
-    "post_wait_freezes": 1000,
+    "post_delay": 3000,
     "focus": "EM.装备制作.敲敲敲~",
     "roi": [
       943,

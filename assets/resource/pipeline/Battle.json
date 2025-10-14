@@ -117,8 +117,8 @@
     "next": [
       "Battle_CollectMapShouLie"
     ],
-    "post_delay": 3000,
-    "pre_wait_freezes": 5000,
+    "post_delay": 1000,
+    "pre_wait_freezes": 3000,
     "focus": "BM.快速狩猎地图,默认位置",
     "roi": [
       1029,
@@ -147,7 +147,7 @@
       "Battle_QuickBattleButton"
     ],
     "timeout": 5000,
-    "post_delay": 3000,
+    "post_delay": 1500,
     "pre_wait_freezes": 3000,
     "roi": [
       549,

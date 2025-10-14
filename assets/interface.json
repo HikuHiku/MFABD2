@@ -377,7 +377,7 @@
 								"Battle_CollectMap_SwipLeft"
 							]
 						},
-						"Battle_CollectMapHangXianDoubleCk2No": {
+						"Battle_CollectMapHangXianDoubleCk2No_ToCentral_CK": {
 							"interrupt": [
 								"Battle_CollectMap_SwipLeft"
 							]
@@ -420,61 +420,37 @@
 				}
 			]
 		},
-		"冒险航线-双倍图策略": {
+		"冒险航线-双倍策略": {
 			"cases": [
 				{
-					"name": "强制双倍,优先经验,无双倍刷狩猎场",
+					"name": "强制双倍",
 					"pipeline_override": {}
 				},
 				{
-					"name": "强制双倍,优先金币,无双倍刷狩猎场",
+					"name": "优先双倍",
+					"pipeline_override": {
+						"Battle_CollectMapHangXianDoubleCk1No": {
+							"next": [
+								"Battle_CollectMapHangXianDoubleCk2No_ToCentral"
+							],
+							"interrupt": [
+								"Battle_CollectMapInitialize"
+							]
+						}
+					}
+				},
+				{
+					"name": "忽视双倍",
 					"pipeline_override": {
 						"Battle_CollectMapHangXian1": {
-							"target": [
-								343,
-								560,
-								0,
-								0
-							]
+							"next": [
+								"Battle_CollectMapHangXianDoubleCk1"
+							],
 						},
-						"Battle_CollectMapHangXian2": {
-							"target": [
-								510,
-								535,
-								0,
-								0
-							]
-						}
-					}
-				},
-				{
-					"name": "忽视双倍,优先经验。此时狩猎应当设为x1",
-					"pipeline_override": {
-						"Battle_CollectMapHangXian1": {
-							"interrupt": [
-								"Battle_QuickBattleButton"
-							],
-							"next": [
-								"Battle_FastBattleMAXTouchHangxian"
-							]
-						}
-					}
-				},
-				{
-					"name": "忽视双倍,优先金币。此时狩猎应当设为x1",
-					"pipeline_override": {
-						"Battle_CollectMapHangXian1": {
-							"target": [
-								343,
-								560,
-								0,
-								0
-							],
-							"interrupt": [
-								"Battle_QuickBattleButton"
-							],
-							"next": [
-								"Battle_FastBattleMAXTouchHangxian"
+						"Battle_CollectMapHangXianDoubleCk1": {
+							"template": [
+								"Exp.png",
+								"Gold.png"
 							]
 						}
 					}
@@ -486,6 +462,32 @@
 							"next": [
 								"Battle_CollectMapDongXue"
 							]
+						}
+					}
+				}
+			]
+		},
+		"冒险航线-资源策略": {
+			"cases": [
+				{
+					"name": "优先金币",
+					"pipeline_override": {
+						"Battle_CollectMapHangXian1": {
+							"expected": [
+								"金币"
+							],
+							"focus": "BM.航线-首选-金币"
+						}
+					}
+				},
+				{
+					"name": "优先经验",
+					"pipeline_override": {
+						"Battle_CollectMapHangXian1": {
+							"expected": [
+								"史莱姆"
+							],
+							"focus": "BM.航线-首选-经验"
 						}
 					}
 				}

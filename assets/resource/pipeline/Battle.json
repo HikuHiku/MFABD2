@@ -192,33 +192,36 @@
     "action": "Click",
     "next": [
       "Battle_CollectMapHangXianDoubleCk1",
-      "Battle_CollectMapHangXianDoubleCk1No"
+      "Battle_CollectMapHangXianDoubleCk1No",
+      "Battle_CollectMapHangXian1"
     ],
-    "timeout": 3000,
-    "post_delay": 3000,
-    "focus": "BM.航线-首选",
+    "post_delay": 2000,
+    "focus": "BM.航线-首选（异常！）",
     "roi": [
-      460,
-      542,
-      115,
-      56
+      2,
+      -5,
+      0,
+      0
     ],
     "expected": [
-      "史莱姆王国"
+      "金币"
     ],
-    "target": [
+    "target_offset": [
       510,
       535,
       0,
       0
     ],
-    "doc": "A-2.选择冒险航线，首选"
+    "doc": "A-2.interface，默认为金币优先，已留空"
   },
   "Battle_CollectMapHangXianDoubleCk1": {
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [
       "Battle_FastBattleMAXTouchHangxian"
+    ],
+    "interrupt": [
+      "Battle_QuickBattleButton"
     ],
     "focus": "BM.航线-首选-双倍ck",
     "roi": [
@@ -237,7 +240,8 @@
       650,
       0,
       0
-    ]
+    ],
+    "doc": "点击快速狩猎"
   },
   "Battle_CollectMapHangXianDoubleCk1No": {
     "recognition": "TemplateMatch",
@@ -278,6 +282,9 @@
     "next": [
       "Battle_FastBattleMAXTouchHangxian"
     ],
+    "interrupt": [
+      "Battle_QuickBattleButton"
+    ],
     "focus": "BM.航线-备选-双倍ck",
     "roi": [
       413,
@@ -314,6 +321,39 @@
       "DoubleNoGold.png"
     ],
     "threshold": 0.8
+  },
+  "Battle_CollectMapHangXianDoubleCk2No_ToCentral": {
+    "action": "Click",
+    "next": [
+      "Battle_CollectMapHangXianDoubleCk2No_ToCentral_CK",
+      "Battle_CollectMapHangXianDoubleCk2No_ToCentral"
+    ],
+    "post_delay": 1500,
+    "focus": "BM.快速狩猎-狩猎地图返回默认位置",
+    "target": [
+      140,
+      120,
+      0,
+      0
+    ],
+    "doc": "目的是不用中断、在主流程里把地图复位，配个其他中断使用。T1"
+  },
+  "Battle_CollectMapHangXianDoubleCk2No_ToCentral_CK": {
+    "next": [
+      "Battle_CollectMapShouLieR2"
+    ],
+    "roi": [
+      549,
+      338,
+      171,
+      87
+    ],
+    "expected": [
+      "野猪洞穴"
+    ],
+    "recognition": "OCR",
+    "focus": "BM.快速狩猎-狩猎地图返回默认位置ck",
+    "doc": "目的是不用中断、在主流程里把地图复位，配个其他中断使用。T2，默认接狩猎R2"
   },
   "Battle_CollectMapShouLieR2": {
     "recognition": "OCR",
@@ -569,7 +609,7 @@
       "Battle_CollectMapInitialize_Out",
       "Battle_CollectMapInitialize"
     ],
-    "post_delay": 3000,
+    "post_delay": 1500,
     "focus": "BB.快速狩猎-结算-狩猎地图默认位置",
     "target": [
       140,

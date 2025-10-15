@@ -164,11 +164,11 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "PVP_PVPStart",
       "PVP_PVPMes",
-      "PVP_PVPMes2"
+      "PVP_PVPMes2",
+      "PVP_PVPStart"
     ],
-    "post_delay": 5000,
+    "post_delay": 8500,
     "focus": "PM.PVP卡带",
     "roi": [
       122,

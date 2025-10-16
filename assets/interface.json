@@ -435,11 +435,11 @@
 			"doc": "强制:先满足打双倍，尝试满足资源倾向，满足不了会打另一种资源。\n\n优先:先考虑资源倾向，再考虑双倍则打航线，否则全打狩猎场。\n\n忽视:不检查是否双倍，直接按照资源倾向打。\n\n不打:不打航线图，全刷狩猎场。（此时资源策略无效）",
 			"cases": [
 				{
-					"name": "强制双倍,优先经验,无双倍刷狩猎场",
+					"name": "强制双倍",
 					"pipeline_override": {}
 				},
 				{
-					"name": "强制双倍,优先金币,无双倍刷狩猎场",
+					"name": "优先双倍",
 					"pipeline_override": {
 						"Battle_CollectMapHangXianDoubleCk1No": {
 							"next": [
@@ -468,12 +468,9 @@
 					}
 				},
 				{
-					"name": "忽视双倍,优先经验。此时狩猎应当设为x1",
+					"name": "不打",
 					"pipeline_override": {
-						"Battle_CollectMapHangXian1": {
-							"interrupt": [
-								"Battle_QuickBattleButton"
-							],
+						"Battle_FastBattleMAXTouchShouLie": {
 							"next": [
 								"Battle_CollectMapDongXue"
 							],
@@ -492,7 +489,7 @@
 			"doc": "资源倾向。选法：更缺什么？同等条件下想先刷什么？",
 			"cases": [
 				{
-					"name": "忽视双倍,优先金币。此时狩猎应当设为x1",
+					"name": "优先金币",
 					"pipeline_override": {
 						"Battle_CollectMapHangXian1": {
 							"target": [
@@ -508,7 +505,7 @@
 					}
 				},
 				{
-					"name": "不打",
+					"name": "优先经验",
 					"pipeline_override": {
 						"Battle_CollectMapHangXian1": {
 							"target": [

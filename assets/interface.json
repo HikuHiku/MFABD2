@@ -113,6 +113,9 @@
 			"name": "[领取]活动页奖励",
 			"check": true,
 			"entry": "Activities_HomePage",
+			"option": [
+				"进入前先领取邮件"
+			],
 			"doc": "**常规活动奖励：**专指`主界面`下，`活动`按钮内的奖励。\n\n该奖励存在轮换，需要持续版本跟进。"
 		},
 		{
@@ -498,9 +501,7 @@
 								0,
 								0
 							],
-							"next": [
-								"Battle_FastBattleMAXTouchHangxian"
-							]
+							"focus": "BM.航线-首选-金币"
 						}
 					}
 				},
@@ -937,6 +938,38 @@
 							"next": [
 								"Gacha_PaidDiamond_CustomField",
 								"Gacha_TouchFreeGacha"
+							]
+						}
+					}
+				}
+			]
+		},
+		"进入前先领取邮件": {
+			"doc": "常闭。应对部分活动需要邮件内的代币来进行时开启。",
+			"cases": [
+				{
+					"name": "No",
+					"pipeline_override": {}
+				},
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"Activities_HomePageHub1": {
+							"next": [
+								"Activities_Call_Mail_Start",
+								"Activities_InIndex",
+								"Activities_BackMapPage",
+								"Activities_HomePageHub",
+								"Activities_HomePageHub1"
+							]
+						},
+						"Activities_HomePageHub": {
+							"next": [
+								"Activities_Call_Mail_Start",
+								"Activities_InIndex",
+								"Activities_BackMapPage",
+								"Activities_HomePageHub",
+								"Activities_HomePageHub1"
 							]
 						}
 					}

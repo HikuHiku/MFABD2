@@ -533,6 +533,7 @@
       "Collect_OperationsMain_ToAreaMap"
     ],
     "interrupt": [
+      "Collect_FindPickupCat",
       "Collect_FindTeleporCircle0.9",
       "Collect_FindTeleporCircle",
       "Collect_ForceTeleporCircle"
@@ -549,6 +550,95 @@
       "pin.png"
     ],
     "doc": "中断：章节内主要操作开始。找到图钉，确认进入箱庭"
+  },
+  "Collect_FindPickupCat": {
+    "recognition": "TemplateMatch",
+    "template": [
+      "PickupCatGE.png"
+    ],
+    "green_mask": true,
+    "roi": [
+      820,
+      516,
+      105,
+      102
+    ],
+    "next": [
+      "Collect_FindPickupCat_LeaveCircle_Ty1"
+    ],
+    "doc": "找到猫咪图标，"
+  },
+  "Collect_FindPickupCat_LeaveCircle_Ty1": {
+    "target": [
+      229,
+      88,
+      0,
+      0
+    ],
+    "action": "Click",
+    "post_delay": 800,
+    "next": [
+      "Collect_FindPickupCat_LeaveCircle_Ty2"
+    ],
+    "doc": "自动寻路菜单"
+  },
+  "Collect_FindPickupCat_LeaveCircle_Ty2": {
+    "target": [
+      304,
+      183,
+      31,
+      9
+    ],
+    "next": [
+      "Collect_FindPickupCat_LeaveCircle_Ty3"
+    ],
+    "action": "Click",
+    "post_delay": 800,
+    "doc": "自动寻路酒馆"
+  },
+  "Collect_FindPickupCat_LeaveCircle_Ty3": {
+    "target": [
+      722,
+      446,
+      31,
+      13
+    ],
+    "action": "Click",
+    "post_delay": 3000,
+    "next": [
+      "Collect_FindPickupCat_LeaveCircle_Ty4"
+    ],
+    "doc": "自动寻路酒馆-确认，等待x秒"
+  },
+  "Collect_FindPickupCat_LeaveCircle_Ty4": {
+    "target": [
+      638,
+      640,
+      8,
+      9
+    ],
+    "action": "Click",
+    "post_delay": 800,
+    "next": [
+      "Collect_FindPickupCat_LeaveCircle_Ty5"
+    ],
+    "doc": "停止自动寻路"
+  },
+  "Collect_FindPickupCat_LeaveCircle_Ty5": {
+    "recognition": "TemplateMatch",
+    "template": [
+      "PickupCatGE.png"
+    ],
+    "green_mask": true,
+    "roi": [
+      820,
+      516,
+      105,
+      102
+    ],
+    "action": "Click",
+    "post_delay": 4000,
+    "doc": "放下猫咪，等待x秒，让它走开"
   },
   "Collect_OperationsMain_ToAreaMap": {
     "recognition": "OCR",

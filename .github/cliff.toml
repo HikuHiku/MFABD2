@@ -83,14 +83,15 @@ protect_breaking_commits = false
 commit_parsers = [
     { message = "^(?i)feat", group = "✨ 新功能" },
     { message = "^(?i)fix", group = "🐛 Bug修复" },
+    { message = "^(?i)impr", group = "💪 功能增强" },
     { message = "^(?i)docs", group = "📚 文档" },
     { message = "^(?i)perf", group = "🚀 性能优化" },
     { message = "^(?i)refactor", group = "🚜 代码重构" },
     { message = "^(?i)style", group = "🎨 样式" },
     { message = "^(?i)test", group = "🧪 测试" },
+    { message = "^(?i)(?:build|ci|chore\\(build\\))", group = "🔨 构建维护" },
     { message = "^(?i)chore\\(deps\\)", group = "📦 依赖更新" },
     { message = "^(?i)chore", group = "🔧 日常维护" },
-    { message = "^(?i)ci", group = "⚙️ 持续集成" },
     { body = "(?i).*security", group = "🔒 安全" },
     { message = "^(?i)revert", group = "◀️ 撤销" },
     { message = ".*", group = "其他变更" }

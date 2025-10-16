@@ -109,10 +109,8 @@
   },
   "Mail_EnterMail": {
     "recognition": "OCR",
-    "action": "Click",
     "next": [
-      "Mail_GetAll",
-      "Mail_EnterMail"
+      "Mail_CheckMail"
     ],
     "post_delay": 1000,
     "roi": [
@@ -121,6 +119,7 @@
       66,
       32
     ],
+    "focus": "GM.主页面已确认",
     "expected": [
       "抽抽乐"
     ],
@@ -130,7 +129,34 @@
       0,
       0
     ],
+    "timeout": 3000,
+    "on_error": [
+      "Mail_BackMapPage"
+    ],
     "doc": "识别左下抽抽乐-点击邮件"
+  },
+  "Mail_CheckMail": {
+    "recognition": "TemplateMatch",
+    "template": "MailAtMainRedGe.png",
+    "green_mask": true,
+    "roi": [
+      1003,
+      14,
+      64,
+      58
+    ],
+    "action": "Click",
+    "target_offset": [
+      -15,
+      20,
+      0,
+      0
+    ],
+    "next": [
+      "Mail_GetAll",
+      "Mail_CheckMail"
+    ],
+    "focus": "GM.新邮件确认"
   },
   "Mail_GetAll": {
     "recognition": "OCR",
@@ -170,6 +196,7 @@
     "expected": [
       "点击画面即可返回"
     ],
+    "focus": "GM.一般邮件已收取",
     "doc": "点击画面即可返回"
   },
   "Mail_TabBus": {
@@ -198,7 +225,6 @@
       "Mail_GetBusAllBack",
       "Mail_BackHomePage2"
     ],
-    "focus": "GM.商品邮件领取",
     "post_delay": 2000,
     "roi": [
       1048,
@@ -230,6 +256,7 @@
     "expected": [
       "点击画面即可返回"
     ],
+    "focus": "GM.商品邮件已领取",
     "doc": "点击画面即可返回"
   },
   "Mail_BackHomePage2": {
@@ -263,6 +290,9 @@
     "next": [
       "Mail_FinBackMapPage",
       "Mail_BackMapPage"
+    ],
+    "interrupt": [
+      "Mail_BackIntrtrupt"
     ],
     "pre_delay": 1000,
     "roi": [
@@ -313,6 +343,7 @@
     "template": [
       "pin.png"
     ],
+    "focus": "GM.邮件流程结束",
     "doc": "识别右下图钉-章节主页"
   }
 }

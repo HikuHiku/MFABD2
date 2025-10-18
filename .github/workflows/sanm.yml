@@ -21,10 +21,13 @@ jobs:
           # 格式化时间戳
           TIME=$(date -d "${{ github.event.head_commit.timestamp }}" +"%Y-%m-%d %H:%M:%S")
           
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-6)
+
           # 设置输出变量
           echo "subject=${SUBJECT}" >> $GITHUB_OUTPUT
           echo "body=${BODY}" >> $GITHUB_OUTPUT
           echo "time=${TIME}" >> $GITHUB_OUTPUT
+          echo "short_sha=${SHORT_SHA}" >> $GITHUB_OUTPUT
       
       - name: Send Notification
         uses: Y2Nk4/qmsg-action@master
@@ -36,7 +39,7 @@ jobs:
             📌 [${{ github.repository }}] 提交完成
             👤 提交者: ${{ github.actor }}
             🌿 分支: ${{ github.ref_name }}
-            🆔 提交哈希: ${{ github.sha }}
+            🆔 提交哈希: ${{ steps.commit-info.outputs.short_sha }}
             ⏱️ 提交时间: ${{ steps.commit-info.outputs.time }}
             📝 摘要: ${{ steps.commit-info.outputs.subject }}
             📖 描述: ${{ steps.commit-info.outputs.body }}

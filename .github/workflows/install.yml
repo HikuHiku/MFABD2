@@ -197,3 +197,16 @@ jobs:
           gh workflow run mirrorchyan_release_note
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    needs: [meta, install]
+    if: always() && needs.install.result == 'success'
+    uses: ./.github/workflows/sanm.yml
+    with:
+      build_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      tag: ${{ needs.meta.outputs.tag }}
+      is_dev_version: ${{ needs.meta.outputs.is_dev_version }}
+      commit_sha: ${{ github.sha }}
+      commit_message: ${{ github.event.head_commit.message }}
+      commit_timestamp: ${{ github.event.head_commit.timestamp }}
+    secrets: inherit

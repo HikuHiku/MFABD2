@@ -1,6 +1,26 @@
 name: QQ Notification Sender
 
-on: [push]
+on:
+  workflow_call:
+    inputs:
+      build_url:
+        required: true
+        type: string
+      tag:
+        required: true
+        type: string
+      is_dev_version:
+        required: true
+        type: string
+      commit_sha:
+        required: true
+        type: string
+      commit_message:
+        required: true
+        type: string
+      commit_timestamp:
+        required: true
+        type: string
 
 jobs:
   send-notification:
@@ -9,8 +29,8 @@ jobs:
       - name: Extract commit info 
         id: commit-info
         run: |
-          # 完整处理多行提交消息
-          COMMIT_MSG=$(echo "${{ github.event.head_commit.message }}" | sed ':a;N;$!ba;s/\n/ | /g')
+          # 处理多行提交消息（从输入参数获取）
+          COMMIT_MSG=$(echo "${{ inputs.commit_message }}" | sed ':a;N;$!ba;s/\n/ | /g')
           
           # 提取提交信息第一行作为摘要
           SUBJECT=$(echo "$COMMIT_MSG" | cut -d'|' -f1 | sed 's/^ //')
@@ -19,11 +39,11 @@ jobs:
           BODY=$(echo "$COMMIT_MSG" | cut -d'|' -f2- | sed 's/^ //')
           
           # 格式化时间戳
-          TIME=$(date -d "${{ github.event.head_commit.timestamp }}" +"%Y-%m-%d %H:%M:%S")
+          TIME=$(date -d "${{ inputs.commit_timestamp }}" +"%Y-%m-%d %H:%M:%S")
           
-          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-8)
+          SHORT_SHA=$(echo "${{ inputs.commit_sha }}" | cut -c1-8)
 
-          # 使用环境文件设置输出变量（新标准）
+          # 输出变量
           echo "subject=$SUBJECT" >> $GITHUB_OUTPUT
           echo "body=$BODY" >> $GITHUB_OUTPUT
           echo "time=$TIME" >> $GITHUB_OUTPUT
@@ -36,11 +56,14 @@ jobs:
           groups: ${{ secrets.QMSG_NOTIFY_GROUPS }}
           key: ${{ secrets.QMSG_KEY }}
           message: |
-            📌 [${{ github.repository }}] 提交完成
+            🏗️ [${{ github.repository }}] 构建完成
             👤 提交者: ${{ github.actor }}
-             🌿 分支: ${{ github.ref_name }}
+            🌿 分支: ${{ github.ref_name }}
+            🏷️ 版本: ${{ inputs.tag }}
+            📦 类型: ${{ inputs.is_dev_version == 'true' && '开发版' || '正式版' }}
             🆔 提交哈希: ${{ steps.commit-info.outputs.short_sha }}
             ⏱️ 提交时间: ${{ steps.commit-info.outputs.time }}
             📝 摘要: ${{ steps.commit-info.outputs.subject }}
             📖 描述: ${{ steps.commit-info.outputs.body }}
-            🔗 查看提交: github.com/${{ github.repository }}/commit/${{ github.sha }}
+            🔗 查看提交: https://github.com/${{ github.repository }}/commit/${{ inputs.commit_sha }}
+            🔨 构建详情: ${{ inputs.build_url }}

@@ -852,6 +852,12 @@
     "expected": [
       "赛季奖励",
       "奖励已发放至"
+    ],
+    "target": [
+      790,
+      618,
+      0,
+      0
     ]
   },
   "StartGame_Linkdwon": {

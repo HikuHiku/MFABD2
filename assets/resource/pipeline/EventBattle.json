@@ -715,9 +715,7 @@
       67
     ],
     "expected": [
-      "Lv.1",
-      "LV.1",
-      "lv?1"
+      "[lL][vv][^a-zA-Z0-9]?1$"
     ]
   },
   "Even_MamonoFollowUp_lv1NoMet": {

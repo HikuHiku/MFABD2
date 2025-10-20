@@ -268,6 +268,7 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
+      "Redemption_Evil_Redemption_ExistingOpening",
       "Redemption_Evil_Redemption_SelLv9"
     ],
     "post_delay": 3000,
@@ -281,6 +282,17 @@
       "救赎之塔"
     ]
   },
+  "Redemption_Evil_Redemption_ExistingOpening": {
+    "recognition": "OCR",
+    "expected": "继续第",
+    "roi": [
+      865,
+      586,
+      283,
+      106
+    ],
+    "focus": "REB.[ERROR]发现已存在的开局，退出流程"
+  },
   "Redemption_Evil_Redemption_SelLv9": {
     "recognition": "ColorMatch",
     "action": "Click",
@@ -293,13 +305,12 @@
     ],
     "post_delay": 3000,
     "roi": [
-      237,
-      678,
-      2,
-      10
+      187,
+      651,
+      58,
+      42
     ],
     "method": 4,
-    "green_mask": false,
     "lower": [
       94,
       96,
@@ -396,7 +407,7 @@
     "next": [
       "Redemption_Evil_Redemption_PageBackHub"
     ],
-    "focus": "REM.快速战斗-色核通过",
+    "focus": "REM.无法快速战斗",
     "roi": [
       834,
       637,

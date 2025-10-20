@@ -46,11 +46,13 @@
 			"name": "[执行]装备制作&炼制日常",
 			"entry": "Equip_HomePage",
 			"check": true,
-			"doc": "**装备制作：**依次进行 `N稀有短剑打造`、将其`强化`、将其`分解`、`精炼`。\n\n **如果初次运行有相关装备非正常锁定，可能会失败。** \n\n SR、UR锁定**只是为了排序优先**，这是不设置`排序`情况下的**保底逻辑**。\n\n `精炼`只会以SR or UR 稀有度装备为对象进行\n\n若将`仅精炼...`和`自定义标志排序`同时配置，能“合成”出——低精炼等级强化队列：排列优先装备1号超出`仅精炼`条件会被筛选掉、下一次开始精炼优先装备2号。**自定义标志规则参见子项说明**。 ",
+			"doc": "**装备制作：**依次进行 `N稀有短剑打造`、将其`强化`、将其`分解`、`精炼`。\n\n **如果初次运行有相关装备非正常锁定，可能会失败。** 流程运行无需事先锁定装备。\n\n `精炼`只会以SR or UR 稀有度装备为对象进行\n\n若将`仅精炼...`和`自定义标志排序`同时配置，能“合成”出——低精炼等级强化队列：排列优先装备1号超出`仅精炼`条件会被筛选掉、下一次开始精炼优先装备2号。**自定义标志规则参见子项说明**。 ",
 			"option": [
 				"精炼装备阶级",
 				"仅精炼<17 or <10",
-				"精炼按自定义标志排序"
+				"精炼按自定义标志排序",
+				"精炼类别倾向-专武|制作",
+				"精炼类别倾向应用-按需|强制"
 			]
 		},
 		{
@@ -665,30 +667,75 @@
 				}
 			]
 		},
-		"仅精炼<17 or <10": {
+		"精炼类别倾向-专武|制作": {
+			"doc": "潜在期望。如果要选择装备分类，你期望强化哪种？\n\n",
 			"cases": [
 				{
-					"name": "关闭",
-					"pipeline_override": {}
-				},
-				{
-					"name": "CLv. < 17",
+					"name": "No",
 					"pipeline_override": {
-						"Equip_+9ColorCk": {
-							"next": [
-								"Equip_filter<C17"
+						"Equip_Exclude24MJEqu_OCR": {
+							"expected": [
+								"专\\S*",
+								"\\S*用"
 							]
 						}
 					}
 				},
 				{
+					"name": "Yes",
+					"pipeline_override": {
+						"Equip_Exclude24MJEqu_OCR": {
+							"expected": [
+								"制作"
+							]
+						}
+					}
+				}
+			]
+		},
+		"精炼类别倾向应用-按需|强制": {
+			"doc": "按需:仅当发现精炼装备为魔兽装备时应用\n\n强制:正常装备精炼筛选时直接应用",
+			"cases": [
+				{
+					"name": "No",
+					"pipeline_override": {}
+				},
+				{
+					"name": "Yes",
+					"pipeline_override": {
+						"Equip_filter<C17Ck": {
+							"next": [
+								"Equip_Exclude24MJEqu_OCR"
+							]
+						}
+					}
+				}
+			]
+		},
+		"仅精炼<17 or <10": {
+			"cases": [
+				{
+					"name": "关闭",
+					"pipeline_override": {
+						"Equip_filter<C17": {
+							"recognition": "DirectHit",
+							"action": "DoNothing",
+							"focus": null
+						},
+						"Equip_filter<C17Ck": {
+							"recognition": "DirectHit",
+							"action": "DoNothing",
+							"focus": null
+						}
+					}
+				},
+				{
+					"name": "CLv. < 17",
+					"pipeline_override": {}
+				},
+				{
 					"name": "CLv. < 10",
 					"pipeline_override": {
-						"Equip_+9ColorCk": {
-							"next": [
-								"Equip_filter<C17"
-							]
-						},
 						"Equip_filter<C17": {
 							"focus": "EM.装备精炼.<C10",
 							"target": [

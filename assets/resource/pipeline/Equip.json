@@ -288,6 +288,7 @@
     "action": "Click",
     "next": [
       "Equip_EquipUpSelect2",
+      "Equip_EquipUpSelect_Err",
       "Equip_EquipUpSelect"
     ],
     "post_delay": 1500,
@@ -320,6 +321,20 @@
       0
     ],
     "doc": "点击对号"
+  },
+  "Equip_EquipUpSelect_Err": {
+    "recognition": "OCR",
+    "roi": [
+      534,
+      42,
+      211,
+      295
+    ],
+    "next": [
+      "Equip_filter"
+    ],
+    "expected": "请选择装备后重新尝试",
+    "focus": "EM.【警告】[ERROR]装备强化/分解异常，检查菜单选项。"
   },
   "Equip_EquipUpSelect2": {
     "recognition": "OCR",
@@ -422,6 +437,7 @@
     "action": "Click",
     "next": [
       "Equip_EquipDecSelect2",
+      "Equip_EquipUpSelect_Err",
       "Equip_EquipDecSelect"
     ],
     "post_delay": 3000,
@@ -550,18 +566,14 @@
     ],
     "count": 50,
     "lower": [
-      [
-        85,
-        64,
-        85
-      ]
+      85,
+      64,
+      85
     ],
     "upper": [
-      [
-        229,
-        172,
-        255
-      ]
+      229,
+      172,
+      255
     ]
   },
   "Equip_URColorCk": {
@@ -578,18 +590,14 @@
     ],
     "count": 500,
     "lower": [
-      [
-        19,
-        41,
-        63
-      ]
+      19,
+      41,
+      63
     ],
     "upper": [
-      [
-        249,
-        255,
-        255
-      ]
+      249,
+      255,
+      255
     ]
   },
   "Equip_filter+9": {
@@ -622,7 +630,7 @@
   "Equip_+9ColorCk": {
     "recognition": "ColorMatch",
     "next": [
-      "Equip_filterON"
+      "Equip_filter<C17"
     ],
     "focus": "EM.色核通过.+9",
     "roi": [
@@ -633,18 +641,14 @@
     ],
     "count": 50,
     "lower": [
-      [
-        102,
-        102,
-        122
-      ]
+      102,
+      102,
+      122
     ],
     "upper": [
-      [
-        160,
-        160,
-        160
-      ]
+      160,
+      160,
+      160
     ]
   },
   "Equip_filter<C17": {
@@ -838,6 +842,7 @@
   "Equip_FindRefining": {
     "action": "Click",
     "next": [
+      "Equip_Exclude24MJEqu",
       "Equip_Refining",
       "Equip_FindRefining"
     ],
@@ -849,6 +854,85 @@
       0
     ],
     "doc": "点击第一个装备"
+  },
+  "Equip_Exclude24MJEqu": {
+    "recognition": "TemplateMatch",
+    "roi": [
+      759,
+      342,
+      266,
+      213
+    ],
+    "template": "EquMj24GE.png",
+    "next": [
+      "Equip_Exclude24MJEqu_filter"
+    ],
+    "focus": "EM.[WRN]首选装备可能是魔兽装备"
+  },
+  "Equip_Exclude24MJEqu_filter": {
+    "recognition": "TemplateMatch",
+    "action": "Click",
+    "next": [
+      "Equip_Exclude24MJEqu_OCR",
+      "Equip_Exclude24MJEqu_filter"
+    ],
+    "post_delay": 2000,
+    "focus": "EM.[WRN]开始筛选排除",
+    "roi": [
+      1096,
+      62,
+      32,
+      31
+    ],
+    "template": [
+      "filter.png"
+    ],
+    "doc": "点击左上筛选"
+  },
+  "Equip_Exclude24MJEqu_OCR": {
+    "recognition": "OCR",
+    "expected": [
+      "专\\S*",
+      "\\S*用",
+      "制作"
+    ],
+    "roi": [
+      236,
+      261,
+      400,
+      108
+    ],
+    "action": "Click",
+    "next": [
+      "Equip_Exclude24MJEqu_Color",
+      "Equip_Exclude24MJEqu_OCR"
+    ],
+    "focus": "EM.筛选排除-点击"
+  },
+  "Equip_Exclude24MJEqu_Color": {
+    "recognition": "ColorMatch",
+    "next": [
+      "Equip_filterON"
+    ],
+    "focus": "EM.色核通过.",
+    "roi": [
+      236,
+      261,
+      400,
+      108
+    ],
+    "count": 500,
+    "lower": [
+      19,
+      41,
+      63
+    ],
+    "upper": [
+      249,
+      255,
+      255
+    ],
+    "doc": "偷懒了，范围是一整行，只能确认有一个按钮被点亮，不能确定是哪一个"
   },
   "Equip_Refining": {
     "recognition": "OCR",

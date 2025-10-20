@@ -705,7 +705,8 @@
     ],
     "interrupt": [
       "Collect_ClickTeleporCircleMap",
-      "Collect_ClickBackOnSecureMap"
+      "Collect_ClickBackOnSecureMap",
+      "Collect_TargetMap_Special_Right"
     ],
     "roi": [
       408,
@@ -744,7 +745,8 @@
       "封锁矿山",
       "加尔顿山前段",
       "洞穴神殿",
-      "贫民区"
+      "贫民区",
+      "剑之神殿左侧回廊"
     ],
     "doc": "详细地图确定位置2"
   },
@@ -772,7 +774,8 @@
       "禁地矿山",
       "加尔顿山后段",
       "隐藏神殿",
-      "盗贼据点"
+      "盗贼据点",
+      "剑之神殿右侧回廊"
     ],
     "doc": "详细地图确定位置3"
   },
@@ -793,17 +796,38 @@
       47
     ],
     "expected": [
+      "剑之神殿中央回廊"
+    ],
+    "target": [
+      888,
+      35,
+      0,
+      0
+    ]
+  },
+  "Collect_TargetMap_Special_Right": {
+    "recognition": "OCR",
+    "action": "Click",
+    "focus": "CB.卡带内流程进入END环节",
+    "roi": [
+      408,
+      622,
+      466,
+      47
+    ],
+    "expected": [
       "达雷普旅馆",
       "雷瓦汀基地救护站",
       "拉勒凯旅馆",
       "罗戴夫旅馆",
+      "封印指定室",
       "安全"
     ],
     "target": [
-      120,
-      35,
-      0,
-      0
+      977,
+      342,
+      8,
+      7
     ]
   },
   "Collect_OperationsMain_PVEChapterIden2#": {

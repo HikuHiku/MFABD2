@@ -11,6 +11,7 @@
     "action": "Click",
     "next": [
       "GetReward_EnterUnion",
+      "GetReward_EnterUnion_img",
       "GetReward_HomePageHub",
       "GetReward_HomePageHub1"
     ],
@@ -644,12 +645,8 @@
       73
     ],
     "template": [
-      "MailAtMainRedGe.png",
-      "GaChaEquRDGE.png",
-      "ActiveGe.png",
-      "ActivePeerGe.png"
-    ],
-    "green_mask": true
+      "MailRedPr.png"
+    ]
   },
   "GetReward_GetWeeklyReward": {
     "recognition": "OCR",
@@ -665,7 +662,6 @@
       138,
       38
     ],
-    "threshold": 0.99,
     "expected": [
       "全部获得"
     ],

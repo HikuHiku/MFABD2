@@ -203,6 +203,13 @@
 						},
 						"Collect_QuickCart_QC3": {
 							"index": 2
+						},
+						"Collect_TeleporNotFind": {
+							"next": [
+								"Collect_QuickCart_TargetMapEnd_End",
+								"Collect_ClickTeleporCircleMap",
+								"Collect_TeleporNotFind"
+							]
 						}
 					}
 				},
@@ -244,6 +251,13 @@
 						"Collect_QuickCart_QC3Sort": {
 							"expected": [
 								"角色游戏卡"
+							]
+						},
+						"Collect_TeleporNotFind": {
+							"next": [
+								"Collect_QuickCart_TargetMapEnd_End",
+								"Collect_ClickTeleporCircleMap",
+								"Collect_TeleporNotFind"
 							]
 						}
 					}
@@ -291,6 +305,13 @@
 						"Collect_QuickCart_QC3Sort": {
 							"expected": [
 								"角色游戏卡"
+							]
+						},
+						"Collect_TeleporNotFind": {
+							"next": [
+								"Collect_QuickCart_TargetMapEnd_End",
+								"Collect_ClickTeleporCircleMap",
+								"Collect_TeleporNotFind"
 							]
 						}
 					}
@@ -347,6 +368,13 @@
 						},
 						"Collect_QuickCart_QC3": {
 							"index": 2
+						},
+						"Collect_TeleporNotFind": {
+							"next": [
+								"Collect_QuickCart_TargetMapEnd_End",
+								"Collect_ClickTeleporCircleMap",
+								"Collect_TeleporNotFind"
+							]
 						}
 					}
 				}

@@ -699,14 +699,13 @@
   },
   "Collect_TargetMap1-2": {
     "recognition": "OCR",
-    "action": "Click",
     "next": [
       "Collect_TargetMap2"
     ],
     "interrupt": [
+      "Collect_TeleporNotFind",
       "Collect_ClickTeleporCircleMap",
-      "Collect_ClickBackOnSecureMap",
-      "Collect_TargetMap_Special_Right"
+      "Collect_ClickBackOnSecureMap"
     ],
     "roi": [
       408,
@@ -721,6 +720,7 @@
       "罗戴夫镇",
       "安全"
     ],
+    "focus": "确认区域地图tp1",
     "doc": "详细地图确定位置"
   },
   "Collect_TargetMap2": {
@@ -729,6 +729,7 @@
       "Collect_TargetMap3"
     ],
     "interrupt": [
+      "Collect_TeleporNotFind",
       "Collect_ClickTeleporCircleMap"
     ],
     "roi": [
@@ -748,6 +749,7 @@
       "战斗\\s*[1IⅠ!！](?!I)(?!Ⅰ)(?!！)(?!!)",
       "战斗[1IⅠ](?!I)(?!Ⅰ)"
     ],
+    "focus": "确认区域地图tp2",
     "doc": "详细地图确定位置2"
   },
   "Collect_TargetMap3": {
@@ -756,8 +758,8 @@
       "Collect_TargetMapEnd"
     ],
     "interrupt": [
-      "Collect_ClickTeleporCircleMap",
-      "Collect_TargetMap_Special_Right"
+      "Collect_TeleporNotFind",
+      "Collect_ClickTeleporCircleMap"
     ],
     "roi": [
       408,
@@ -765,6 +767,7 @@
       466,
       47
     ],
+    "focus": "确认区域地图tp3",
     "expected": [
       "禁地矿山",
       "加尔顿山后段",
@@ -782,7 +785,6 @@
   },
   "Collect_TargetMapEnd": {
     "recognition": "OCR",
-    "action": "Click",
     "next": [
       "Collect_OperationsMain_PVEChapterIden2#"
     ],
@@ -809,7 +811,62 @@
       0,
       0
     ],
-    "doc": "分歧点，快速卡带pipeline_override了此处next，去了C_QuickCart_TargetMapEnd"
+    "doc": "维护点C02开端"
+  },
+  "Collect_TargetMapEnd_End": {
+    "recognition": "OCR",
+    "focus": [
+      "Collect_TargetMapEnd"
+    ],
+    "roi": [
+      408,
+      622,
+      466,
+      47
+    ],
+    "expected": [
+      "达雷普旅馆",
+      "雷瓦汀基地救护站",
+      "拉勒凯旅馆",
+      "罗戴夫旅馆",
+      "安全"
+    ],
+    "target": [
+      120,
+      35,
+      0,
+      0
+    ],
+    "doc": "维护点C02末端.快速卡带pipeline_override了此处next，去了C_QuickCart_TargetMapEnd,因为是中断内next，故必须结束退回上一个流程，单独end"
+  },
+  "Collect_TeleporNotFind": {
+    "recognition": "TemplateMatch",
+    "action": "Click",
+    "target": [
+      977,
+      342,
+      2,
+      2
+    ],
+    "next": [
+      "Collect_TargetMapEnd_End",
+      "Collect_ClickTeleporCircleMap",
+      "Collect_TeleporNotFind"
+    ],
+    "post_delay": 1000,
+    "roi": [
+      209,
+      82,
+      912,
+      487
+    ],
+    "template": [
+      "TpCircleMapGE.png"
+    ],
+    "green_mask": true,
+    "inverse": true,
+    "focus": "CBB.[WRN]未识别到传送阵，执行特殊换页",
+    "doc": "[维护点末端，前手interface的 采集方案 op]主线13的区域图的2#、5#均不是正常图，特征是没有传送阵。在此写一个原中断吸取的反向‘找不到’中断来应对，动作为右切一图"
   },
   "Collect_TargetMap_Special_Right": {
     "recognition": "OCR",
@@ -1435,7 +1492,6 @@
   },
   "Collect_QuickCart_TargetMapEnd": {
     "recognition": "OCR",
-    "action": "Click",
     "next": [
       "Collect_QuickCart_HomePageHub2"
     ],
@@ -1453,7 +1509,27 @@
       "罗戴夫旅馆",
       "旅馆",
       "安全"
-    ]
+    ],
+    "doc": "维护点C02开端"
+  },
+  "Collect_QuickCart_TargetMapEnd_End": {
+    "recognition": "OCR",
+    "focus": "CCB.[退出中断]快速卡带-卡带内流程进入END环节",
+    "roi": [
+      408,
+      622,
+      466,
+      47
+    ],
+    "expected": [
+      "达雷普旅馆",
+      "雷瓦汀基地救护站",
+      "拉勒凯旅馆",
+      "罗戴夫旅馆",
+      "旅馆",
+      "安全"
+    ],
+    "doc": "维护点C02末端，同步_QuickCart_TargetMapEnd判定与动作，保留后续空节点"
   },
   "Collect_QuickCart_HomePageHub2": {
     "recognition": "TemplateMatch",

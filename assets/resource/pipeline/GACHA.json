@@ -252,9 +252,8 @@
       580
     ],
     "template": [
-      "FreeGachaGE.png"
+      "FreeGacha.png"
     ],
-    "green_mask": true,
     "post_wait_freezes": 1000,
     "threshold": 0.9,
     "target_offset": [

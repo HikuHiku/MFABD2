@@ -909,7 +909,7 @@
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [
-      "Collect_Skill1"
+      "Collect_Skill_Start"
     ],
     "post_delay": 5000,
     "focus": "CB.区域地图.tp1.找到传送阵图标",
@@ -928,7 +928,7 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "Collect_Skill1"
+      "Collect_Skill_Start"
     ],
     "focus": "CB.区域地图.tp1.已正确",
     "roi": [
@@ -952,13 +952,12 @@
     ],
     "doc": "详细地图确定位置"
   },
-  "Collect_Skill1": {
+  "Collect_Skill_Start": {
     "recognition": "TemplateMatch",
-    "action": "Click",
     "next": [
-      "Collect_Skill2"
+      "Collect_Skill_Tap1"
     ],
-    "focus": "CB.吸取技能组施放",
+    "focus": "CSB.吸取技能组施放",
     "post_delay": 5000,
     "roi": [
       1108,
@@ -975,7 +974,57 @@
       0,
       0
     ],
-    "doc": "PVE点击技能1。next暴力修改：因无物品可吸取不会消耗次数，故两个吸取技能连续使用；且缩减延迟。"
+    "doc": "PVE点击技能队列开启"
+  },
+  "Collect_Skill_Tap1": {
+    "recognition": "TemplateMatch",
+    "next": [
+      "Collect_Skill_Tap1_cor"
+    ],
+    "roi": [
+      1049,
+      632,
+      58,
+      59
+    ],
+    "template": [
+      "pin.png"
+    ],
+    "doc": "第一页技能点击"
+  },
+  "Collect_Skill_Tap1_cor": {
+    "recognition": "ColorMatch",
+    "next": [
+      "Collect_Skill2"
+    ],
+    "focus": "CSB.技能页1-色核通过",
+    "post_delay": 5000,
+    "roi": [
+      1049,
+      632,
+      58,
+      59
+    ],
+    "upper": [
+      223,
+      194,
+      129
+    ],
+    "lower": [
+      192,
+      141,
+      23
+    ],
+    "count": 200,
+    "doc": "技能页1，色核识别"
+  },
+  "Collect_Skill1-1": {
+    "doc": "技能1设定为探查",
+    "recognition": "TemplateMatch",
+    "template": ""
+  },
+  "Collect_Skill1-2~5": {
+    "doc": "技能2~5设定为吸取"
   },
   "Collect_Skill2": {
     "action": "Click",
@@ -1011,7 +1060,7 @@
   "Collect_Skill2_2": {
     "action": "Click",
     "next": [
-      "Collect_Skill3"
+      "Collect_Skill_End"
     ],
     "post_delay": 5000,
     "target": [
@@ -1022,7 +1071,7 @@
     ],
     "doc": "PVE点击技能2"
   },
-  "Collect_Skill3": {
+  "Collect_Skill_End": {
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [

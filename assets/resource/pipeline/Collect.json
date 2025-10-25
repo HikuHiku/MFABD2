@@ -1466,11 +1466,6 @@
     "next": [
       "Collect_Skill_TapReset"
     ],
-    "timeout": 1500,
-    "on_error": [
-      "Collect_Skill2_2_Nothing",
-      "Collect_Skill2_2"
-    ],
     "post_delay": 1500,
     "action": "Click",
     "focus": "CSB.施放'吸取'技能,栏位2-1",
@@ -1497,11 +1492,6 @@
     "recognition": "ColorMatch",
     "next": [
       "Collect_Skill_TapReset"
-    ],
-    "timeout": 1500,
-    "on_error": [
-      "Collect_Skill2_3_Nothing",
-      "Collect_Skill2_3"
     ],
     "post_delay": 1500,
     "action": "Click",
@@ -1530,11 +1520,6 @@
     "next": [
       "Collect_Skill_TapReset"
     ],
-    "timeout": 1500,
-    "on_error": [
-      "Collect_Skill2_4_Nothing",
-      "Collect_Skill2_4"
-    ],
     "action": "Click",
     "post_delay": 1500,
     "focus": "CSB.施放'吸取'技能,栏位2-3",
@@ -1561,11 +1546,6 @@
     "recognition": "ColorMatch",
     "next": [
       "Collect_Skill_TapReset"
-    ],
-    "timeout": 1500,
-    "on_error": [
-      "Collect_Skill2_5_Nothing",
-      "Collect_Skill2_5"
     ],
     "action": "Click",
     "post_delay": 1500,
@@ -1623,12 +1603,9 @@
   "Collect_Skill1_2_perClr": {
     "recognition": "ColorMatch",
     "next": [
-      "Collect_Skill1_1"
-    ],
-    "timeout": 1500,
-    "on_error": [
       "Collect_Skill1_3_Nothing",
-      "Collect_Skill1_3"
+      "Collect_Skill1_3",
+      "Collect_Skill1_1"
     ],
     "post_delay": 1500,
     "action": "Click",
@@ -1655,12 +1632,9 @@
   "Collect_Skill1_3_perClr": {
     "recognition": "ColorMatch",
     "next": [
-      "Collect_Skill1_1"
-    ],
-    "timeout": 1500,
-    "on_error": [
       "Collect_Skill1_4_Nothing",
-      "Collect_Skill1_4"
+      "Collect_Skill1_4",
+      "Collect_Skill1_1"
     ],
     "post_delay": 1500,
     "action": "Click",
@@ -1687,12 +1661,9 @@
   "Collect_Skill1_4_perClr": {
     "recognition": "ColorMatch",
     "next": [
-      "Collect_Skill1_1"
-    ],
-    "timeout": 1500,
-    "on_error": [
       "Collect_Skill1_5_Nothing",
-      "Collect_Skill1_5"
+      "Collect_Skill1_5",
+      "Collect_Skill1_1"
     ],
     "post_delay": 1500,
     "action": "Click",

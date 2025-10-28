@@ -39,7 +39,9 @@
 			"check": true,
 			"doc": "**地图采集**：进入地图，依次切主城、战斗I图、II图，途中分别用技能`探查`、`吸取`、`召集`；技能最高等级次数5+5、5，则最多吸取3个章节余1次`吸取`。必要时使用`传送`救场。\n\n**注意：必须按说明图位置放置好技能才能调用。**\n\n包含两套切图逻辑：**传统主界面-卡带**、**新UI快速卡带-前三张图**(自定义便捷，**推荐**)\n\n**传统主界面-卡带**：固定主线9、7、8三图（专注木材和矿石）、固定主线2（适合低练度完成每日任务）\n\n**新UI快速卡带-前三张图**：利用快速卡带图钉标黄会前置，将`前三张图`与`主线/角色 卡带`进行条件组合，列出较有价值的。(自定义卡带排序规则，黄图钉移动到置顶组，各组内按章节先后排列)\n\n比如**快速，第二项`剧情-剧情-角色`意为：剧情卡带左起第1张→剧情卡带左起第2张→角色卡带左起第1张**",
 			"option": [
-				"采集方案"
+				"采集方案",
+				"快速卡带-剧情卡带-刷取张数",
+				"快速卡带-角色卡带-刷取张数"
 			]
 		},
 		{
@@ -150,75 +152,36 @@
 		"采集方案": {
 			"cases": [
 				{
-					"name": "快速:剧情卡-剧情卡-剧情卡",
-					"pipeline_override": {
-						"Collect_QuickCart_QC2": {
-							"index": 1
-						},
-						"Collect_QuickCart_QC3": {
-							"index": 2
-						}
-					}
+					"name": "快速：1#剧情卡→2#角色卡",
+					"pipeline_override": {}
 				},
 				{
-					"name": "快速:剧情卡-剧情卡-角色卡",
+					"name": "快速：1#角色卡→2#剧情卡",
 					"pipeline_override": {
-						"Collect_QuickCart_QC2": {
-							"index": 1
-						},
-						"Collect_QuickCart_QC3Sort": {
-							"expected": [
-								"角色游戏卡"
-							]
-						}
-					}
-				},
-				{
-					"name": "快速:剧情卡-角色卡-角色卡",
-					"pipeline_override": {
-						"Collect_QuickCart_QC2Sort": {
-							"expected": [
-								"角色游戏卡"
+						"Collect_QuickCart_Menu_Ocr": {
+							"next": [
+								"Collect_QuickCart_QR_Sort"
 							]
 						},
-						"Collect_QuickCart_QC3": {
-							"index": 1
+						"Collect_QuickCart_Switch": {
+							"next": [
+								"Collect_QuickCart_QC_Sort"
+							]
 						},
-						"Collect_QuickCart_QC3Sort": {
-							"expected": [
-								"角色游戏卡"
+						"Collect_QuickCart_QC_Out": {
+							"next": [
+								"Collect_ChapterSelectionError"
+							]
+						},
+						"Collect_QuickCart_QR_Out": {
+							"next": [
+								"Collect_QuickCart_Switch"
 							]
 						}
 					}
 				},
 				{
-					"name": "快速:角色卡-角色卡-角色卡",
-					"pipeline_override": {
-						"Collect_QuickCart_QC1Sort": {
-							"expected": [
-								"角色游戏卡"
-							]
-						},
-						"Collect_QuickCart_QC2Sort": {
-							"expected": [
-								"角色游戏卡"
-							]
-						},
-						"Collect_QuickCart_QC3Sort": {
-							"expected": [
-								"角色游戏卡"
-							]
-						},
-						"Collect_QuickCart_QC2": {
-							"index": 1
-						},
-						"Collect_QuickCart_QC3": {
-							"index": 2
-						}
-					}
-				},
-				{
-					"name": "固定:木&金-章节9+7+8",
+					"name": "固定：木&金-章节9+7+8",
 					"pipeline_override": {
 						"Collect_HomePageHub": {
 							"next": [
@@ -261,7 +224,7 @@
 					}
 				},
 				{
-					"name": "固定:低练度-章节2",
+					"name": "固定：低练度-章节2",
 					"pipeline_override": {
 						"Collect_HomePageHub": {
 							"next": [
@@ -310,6 +273,264 @@
 							]
 						}
 					}
+				}
+			]
+		},
+		"快速卡带-剧情卡带-刷取张数": {
+			"doc": "【仅适用于‘快速’方案】左起第1张开始，刷几个卡带？\n\n最大值 = $‘吸取’技能总次数 ÷3 - $角色卡带计划刷取张数 。超选都是浪费时间！",
+			"cases": [
+				{
+					"name": "3",
+					"pipeline_override": {
+						"Collect_QuickCart_QC3": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "0",
+					"pipeline_override": {
+						"Collect_QuickCart_QC_Sort": {
+							"next": [
+								"Collect_QuickCart_Switch"
+							]
+						}
+					}
+				},
+				{
+					"name": "1",
+					"pipeline_override": {
+						"Collect_QuickCart_QC1": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "2",
+					"pipeline_override": {
+						"Collect_QuickCart_QC2": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "4",
+					"pipeline_override": {
+						"Collect_QuickCart_QC4": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "5",
+					"pipeline_override": {
+						"Collect_QuickCart_QC5": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "6",
+					"pipeline_override": {
+						"Collect_QuickCart_QC6": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "7",
+					"pipeline_override": {
+						"Collect_QuickCart_QC7": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "8",
+					"pipeline_override": {
+						"Collect_QuickCart_QC8": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "9",
+					"pipeline_override": {
+						"Collect_QuickCart_QC9": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "10",
+					"pipeline_override": {
+						"Collect_QuickCart_QC10": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "11",
+					"pipeline_override": {
+						"Collect_QuickCart_QC11": {
+							"next": [
+								"Collect_QuickCart_QC_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "12",
+					"pipeline_override": {}
+				}
+			]
+		},
+		"快速卡带-角色卡带-刷取张数": {
+			"doc": "【仅适用于‘快速’方案】左起第1张开始，刷几个卡带？\n\n最大值 = $‘吸取’技能总次数 ÷3 - $剧情卡带计划刷取张数 【且不能超过当前版本最大角色卡带数！】。超选都是浪费时间！",
+			"cases": [
+				{
+					"name": "0",
+					"pipeline_override": {
+						"Collect_QuickCart_QR_Sort": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "1",
+					"pipeline_override": {
+						"Collect_QuickCart_QR1": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "2",
+					"pipeline_override": {
+						"Collect_QuickCart_QR2": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "3",
+					"pipeline_override": {
+						"Collect_QuickCart_QR3": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "4",
+					"pipeline_override": {
+						"Collect_QuickCart_QR4": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "5",
+					"pipeline_override": {
+						"Collect_QuickCart_QR5": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "6",
+					"pipeline_override": {
+						"Collect_QuickCart_QR6": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "7",
+					"pipeline_override": {
+						"Collect_QuickCart_QR7": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "8",
+					"pipeline_override": {
+						"Collect_QuickCart_QR8": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "9",
+					"pipeline_override": {
+						"Collect_QuickCart_QR9": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "10",
+					"pipeline_override": {
+						"Collect_QuickCart_QR10": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "11",
+					"pipeline_override": {
+						"Collect_QuickCart_QR11": {
+							"next": [
+								"Collect_QuickCart_QR_Fin"
+							]
+						}
+					}
+				},
+				{
+					"name": "12",
+					"pipeline_override": {}
 				}
 			]
 		},

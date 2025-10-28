@@ -287,6 +287,11 @@
             "Collect_Skill1_3_Nothing",
             "Collect_Skill1_3"
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_4_Nothing",
+            "Collect_Skill1_5_OCRERR"
+        ],
         "focus": "CSB.无技能被设置,栏位1-2",
         "roi": [
             933,
@@ -312,6 +317,11 @@
             80,
             86
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_5_Nothing",
+            "Collect_Skill1_5_OCRERR"
+        ],
         "template": [
             "Skill-Nothing.png"
         ],
@@ -330,6 +340,10 @@
             75,
             76
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_1"
+        ],
         "template": [
             "Skill-Nothing.png"
         ],
@@ -339,6 +353,10 @@
         "recognition": "TemplateMatch",
         "next": [
             "Collect_Skill1_1"
+        ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_5_OCRERR"
         ],
         "focus": "CSB.无技能被设置，栏位1-5",
         "roi": [
@@ -351,6 +369,11 @@
             "Skill-Nothing.png"
         ],
         "doc": "PVE点击技能2（栏位4。栏位5留空，摸鱼）"
+    },
+    "Collect_Skill1_5_OCRERR": {
+        "next": [
+            "Collect_Skill1_1"
+        ]
     },
     "Collect_Skill_Tap2": {
         "action": "Click",
@@ -882,6 +905,12 @@
             "Collect_Skill2_2_Nothing",
             "Collect_Skill2_2"
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_3_Nothing",
+            "Collect_Skill2_4_Nothing",
+            "Collect_Skill2_5_Nothing"
+        ],
         "focus": "CSB.无技能被设置，栏位2-1",
         "roi": [
             963,
@@ -898,6 +927,11 @@
         "next": [
             "Collect_Skill2_3_Nothing",
             "Collect_Skill2_3"
+        ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_4_Nothing",
+            "Collect_Skill2_5_Nothing"
         ],
         "focus": "CSB.无技能被设置，栏位2-2",
         "roi": [
@@ -916,6 +950,11 @@
             "Collect_Skill2_4_Nothing",
             "Collect_Skill2_4"
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_5_Nothing",
+            "Collect_Skill2_5_OCRERR"
+        ],
         "focus": "CSB.无技能被设置，栏位2-3",
         "roi": [
             966,
@@ -932,6 +971,10 @@
         "next": [
             "Collect_Skill2_5_Nothing",
             "Collect_Skill2_5"
+        ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_1"
         ],
         "post_delay": 1500,
         "focus": "CSB.无技能被设置，栏位2-4",
@@ -950,6 +993,10 @@
         "next": [
             "Collect_Skill_TapReset"
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_5_OCRERR"
+        ],
         "focus": "CSB.无技能被设置，栏位2-5",
         "roi": [
             1139,
@@ -959,6 +1006,11 @@
         ],
         "template": [
             "Skill-Nothing.png"
+        ]
+    },
+    "Collect_Skill2_5_OCRERR": {
+        "next": [
+            "Collect_Skill_TapReset"
         ]
     },
     "Collect_Skill2_1~5_Unable": {

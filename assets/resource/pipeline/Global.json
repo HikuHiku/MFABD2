@@ -102,7 +102,8 @@
         "template": [
             "QuickCartGeadai.png"
         ],
-        "green_mask": true
+        "green_mask": true,
+        "doc": "调出快速卡带1/2,操作"
     },
     "Global_QuickCart_MenuReset_Ocr": {
         "recognition": "OCR",
@@ -115,6 +116,7 @@
         ],
         "expected": [
             "最近"
-        ]
+        ],
+        "doc": "调出快速卡带2/2,核对"
     }
 }

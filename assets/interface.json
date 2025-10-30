@@ -381,7 +381,7 @@
 			]
 		},
 		"狩猎场-章节图策略": {
-			"doc": "选'不打'会强制启用'强制双倍'的双倍策略",
+			"doc": "选“不打”会,会使得启用“优先双倍”被“强制双倍”替代,这是为了避免bug",
 			"cases": [
 				{
 					"name": "低练度-章节2",
@@ -471,9 +471,7 @@
 								"Battle_CollectMapHangXian1"
 							]
 						},
-						"Battle_CollectMapHangXianDoubleCk1No": {},
-						"Battle_CollectMapHangXian1": {},
-						"Battle_CollectMapHangXianDoubleCk1": {}
+						"Battle_CollectMapHangXianDoubleCk1No": {}
 					}
 				}
 			]

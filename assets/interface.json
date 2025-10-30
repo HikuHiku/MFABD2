@@ -25,9 +25,9 @@
 			"entry": "Battle_StartGame_HomePage",
 			"check": true,
 			"option": [
-				"狩猎场-章节图策略",
 				"冒险航线-双倍策略",
 				"冒险航线-资源策略",
+				"狩猎场-章节图策略",
 				"战斗次数分配",
 				"冒险航线-圣石洞穴属性"
 			],
@@ -150,10 +150,6 @@
 		"采集方案": {
 			"cases": [
 				{
-					"name": "固定:木&金-章节9+7+8",
-					"pipeline_override": {}
-				},
-				{
 					"name": "固定:低练度-章节2",
 					"pipeline_override": {
 						"Collect_ChapterSelection1": {
@@ -165,6 +161,10 @@
 							]
 						}
 					}
+				},
+				{
+					"name": "固定:木&金-章节9+7+8",
+					"pipeline_override": {}
 				},
 				{
 					"name": "快速:剧情卡-剧情卡-剧情卡",
@@ -381,6 +381,7 @@
 			]
 		},
 		"狩猎场-章节图策略": {
+			"doc": "选'不打'会强制启用'强制双倍'的双倍策略",
 			"cases": [
 				{
 					"name": "低练度-章节2",
@@ -460,6 +461,19 @@
 								0
 							]
 						}
+					}
+				},
+				{
+					"name": "不打",
+					"pipeline_override": {
+						"Battle_CollectMap": {
+							"next": [
+								"Battle_CollectMapHangXian1"
+							]
+						},
+						"Battle_CollectMapHangXianDoubleCk1No": {},
+						"Battle_CollectMapHangXian1": {},
+						"Battle_CollectMapHangXianDoubleCk1": {}
 					}
 				}
 			]

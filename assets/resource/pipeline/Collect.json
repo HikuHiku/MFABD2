@@ -780,6 +780,7 @@
       "Collect_MapRight_NoFind"
     ],
     "focus": "确认区域地图tp3",
+    "post_delay": 200,
     "roi": [
       408,
       622,

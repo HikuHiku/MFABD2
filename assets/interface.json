@@ -167,10 +167,16 @@
 								"Collect_QuickCart_QR_Sort"
 							]
 						},
+						"Collect_QuickCart_QR_Fin": {
+							"next": "Collect_QuickCart_Switch"
+						},
 						"Collect_QuickCart_Switch": {
 							"next": [
 								"Collect_QuickCart_QC_Sort"
 							]
+						},
+						"Collect_QuickCart_QC_Fin": {
+							"next": "Collect_QuickCart_Fin"
 						},
 						"Collect_QuickCart_QC_Out": {
 							"next": [
@@ -1274,9 +1280,7 @@
 			],
 			"pipeline_override": {
 				"Collect_TargetMap3": {
-					"post_delay": [
-						"{第三次采集额外等待时间(ms)}"
-					]
+					"post_delay": "{第三次采集额外等待时间(ms)}"
 				}
 			}
 		}

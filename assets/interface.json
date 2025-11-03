@@ -1275,7 +1275,7 @@
 			"pipeline_override": {
 				"Collect_TargetMap3": {
 					"post_delay": [
-						"{等待时间(ms)}"
+						"{第三次采集额外等待时间(ms)}"
 					]
 				}
 			}

@@ -79,7 +79,7 @@
 			"option": [
 				"竞技场战斗倍数"
 			],
-			"doc": "**竞技场：**进入竞技场卡带，打完每日免费鸡尾酒。\n\n**战斗倍数：**系奖牌倍率。\n\n排位分按每一场胜负计算无关倍率；奖牌则会x倍率。\n\nMax为10倍，每天打4场x10倍鸡尾酒，计4场排位分，4x10倍奖牌。"
+			"doc": "**竞技场：**进入竞技场卡带，打完每日免费鸡尾酒。\n\n**战斗倍数：**Max 或 Min \n\n关于计分：排位分按每一场胜负计算无关倍率、奖牌则会x倍率。\n\n如：Max为10倍，每天打4场x10倍鸡尾酒，计4场排位分，4x10倍奖牌。"
 		},
 		{
 			"name": "[执行]赛季活动快速战斗",
@@ -167,10 +167,16 @@
 								"Collect_QuickCart_QR_Sort"
 							]
 						},
+						"Collect_QuickCart_QR_Fin": {
+							"next": "Collect_QuickCart_Switch"
+						},
 						"Collect_QuickCart_Switch": {
 							"next": [
 								"Collect_QuickCart_QC_Sort"
 							]
+						},
+						"Collect_QuickCart_QC_Fin": {
+							"next": "Collect_QuickCart_Fin"
 						},
 						"Collect_QuickCart_QC_Out": {
 							"next": [
@@ -483,7 +489,7 @@
 					}
 				},
 				{
-					"name": "7",
+					"name": "7（截止合约之战共7张）",
 					"pipeline_override": {
 						"Collect_QuickCart_QR7": {
 							"next": [
@@ -980,11 +986,11 @@
 		"竞技场战斗倍数": {
 			"cases": [
 				{
-					"name": "战斗一次",
+					"name": "Max",
 					"pipeline_override": {
 						"PVP_AutoBattleMAX": {
 							"target": [
-								425,
+								865,
 								435,
 								0,
 								0
@@ -993,11 +999,11 @@
 					}
 				},
 				{
-					"name": "Max",
+					"name": "Min",
 					"pipeline_override": {
 						"PVP_AutoBattleMAX": {
 							"target": [
-								865,
+								425,
 								435,
 								0,
 								0
@@ -1274,15 +1280,13 @@
 			],
 			"pipeline_override": {
 				"Collect_TargetMap3": {
-					"post_delay": [
-						"{等待时间(ms)}"
-					]
+					"post_delay": "{第三次采集额外等待时间(ms)}"
 				}
 			}
 		}
 	},
 	"name": "MFABD2",
-	"custom_title": "MFABD2 | 棕色尘埃2自动化助手(sunyink/MFABD2)v0.0.5 | 游戏版本：20251023 (Halloween Night)",
+	"custom_title": "MFABD2 | 棕色尘埃2自动化助手(sunyink/MFABD2)v0.0.5 | 游戏版本：20251106 (Magic for Wishes)",
 	"url": "https://github.com/sunyink/MFABD2",
 	"mirrorchyan_rid": "MFABD2",
 	"mirrorchyan_multiplatform": false,

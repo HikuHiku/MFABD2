@@ -129,6 +129,7 @@
         "next": [
             "Collect_Skill1_1"
         ],
+        "focus": "CSB.施放'召集'技能,栏位1-2",
         "post_delay": 1500,
         "roi": [
             933,
@@ -148,6 +149,7 @@
         "next": [
             "Collect_Skill1_1"
         ],
+        "focus": "CSB.施放'召集'技能,栏位1-3",
         "roi": [
             966,
             437,
@@ -164,6 +166,7 @@
         "next": [
             "Collect_Skill1_1"
         ],
+        "focus": "CSB.施放'召集'技能,栏位1-4",
         "post_delay": 1500,
         "roi": [
             1054,
@@ -181,6 +184,7 @@
         "next": [
             "Collect_Skill1_1"
         ],
+        "focus": "CSB.施放'召集'技能,栏位1-5",
         "post_delay": 1500,
         "roi": [
             1139,
@@ -728,14 +732,11 @@
     "Collect_Skill1_5_perClr": {
         "recognition": "ColorMatch",
         "next": [
-            "Collect_Skill2_5",
-            "Collect_Skill2_5_Nothing"
+            "Collect_Skill1_5",
+            "Collect_Skill1_5_Nothing"
         ],
         "timeout": 3000,
         "on_error": "Collect_Skill1_2~5_Unable",
-        "post_delay": 1500,
-        "action": "Click",
-        "focus": "CSB.施放'召集'技能,栏位1-5",
         "roi": [
             1173,
             486,

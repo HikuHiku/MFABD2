@@ -5,7 +5,7 @@
             "Collect_Skill_Tap1"
         ],
         "post_delay": 1000,
-        "focus": "CSB.吸取技能组施放",
+        "focus": "CSB.技能组调用开始",
         "roi": [
             1108,
             637,
@@ -277,6 +277,10 @@
             "Collect_Skill1_3_Nothing",
             "Collect_Skill1_3_perClr"
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_4_perOcr"
+        ],
         "focus": "CSB.无技能被设置,栏位1-2",
         "roi": [
             933,
@@ -297,6 +301,10 @@
             "Collect_Skill1_4_perClr"
         ],
         "focus": "CSB.无技能被设置，栏位1-3",
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill1_5_perOcr"
+        ],
         "roi": [
             966,
             437,
@@ -434,6 +442,10 @@
             "Collect_Skill2_2_perClr"
         ],
         "focus": "CSB.施放次数已满,栏位2-1",
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_3_perOcr"
+        ],
         "roi": [
             963,
             607,
@@ -453,6 +465,10 @@
             "Collect_Skill2_3_perClr"
         ],
         "focus": "CSB.施放次数已满,栏位2-2",
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_4_perOcr"
+        ],
         "roi": [
             942,
             535,
@@ -470,6 +486,10 @@
             "Collect_Skill2_4_perOcr",
             "Collect_Skill2_4_Nothing",
             "Collect_Skill2_4_perClr"
+        ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_5_perOcr"
         ],
         "focus": "CSB.施放次数已满,栏位2-3",
         "roi": [
@@ -490,6 +510,10 @@
             "Collect_Skill2_5_Nothing",
             "Collect_Skill2_5_perClr"
         ],
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_1~5_Unable"
+        ],
         "focus": "CSB.施放次数已满,栏位2-4",
         "roi": [
             1062,
@@ -508,6 +532,10 @@
             "Collect_Skill_TapReset"
         ],
         "focus": "CSB.施放次数已满,栏位2-5",
+        "timeout": 8000,
+        "on_error": [
+            "Collect_Skill2_1~5_Unable"
+        ],
         "roi": [
             1155,
             458,

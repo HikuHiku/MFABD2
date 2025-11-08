@@ -167,7 +167,8 @@
     "next": [
       "PVP_PVPMes",
       "PVP_PVPMes2",
-      "PVP_PVPStart"
+      "PVP_PVPStart",
+      "PVP_AutoBattle"
     ],
     "interrupt": [
       "PVP_PerOperationsMain_Error",

@@ -173,7 +173,7 @@ jobs:
           GITHUB_REPO: ${{ github.repository }}
 
   release:
-    if: (needs.meta.outputs.is_tag_push == 'true') || (github.event_name == 'workflow_dispatch' && needs.meta.outputs.is_dev_version == 'true')
+    if: (needs.meta.outputs.is_tag_push == 'true') || contains(needs.meta.outputs.tag, '-beta')
     needs: [meta, install, changelog]
     runs-on: ubuntu-latest
     steps:
@@ -222,7 +222,7 @@ jobs:
           fetch-depth: 0
 
       - name: Trigger MirrorChyanUploading
-        if: github.repository_owner == 'sunyink' && ((needs.meta.outputs.is_tag_push == 'true') || (github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && needs.meta.outputs.is_dev_version == 'true'))
+        if: github.repository_owner == 'sunyink' && ((needs.meta.outputs.is_tag_push == 'true') || contains(needs.meta.outputs.tag, '-beta'))
         run: |
           echo "安全触发镜像服务: 分支=${{ github.base_ref || github.ref }}"
           gh workflow run mirrorchyan

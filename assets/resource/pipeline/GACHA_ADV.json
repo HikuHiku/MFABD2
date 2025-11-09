@@ -322,7 +322,8 @@
   "GachaADV_Location1": {
     "recognition": "TemplateMatch",
     "template": [
-      "GACHA_ListFull_GE.png"
+      "GACHA_ListFull_GE.png",
+      "GACHA_ListFull2_GE.png"
     ],
     "green_mask": true,
     "roi": [
@@ -335,17 +336,30 @@
     "post_delay": 1000,
     "focus": "GAB.进入卡池列位置1",
     "next": [
-      "GachaADV_Location1_Ck",
-      "GachaADV_Location1"
-    ],
-    "interrupt": [
-      "GachaADV_SkipPV"
+      "GachaADV_Location1_hub"
     ],
     "target_offset": [
       -80,
       25,
       0,
       0
+    ]
+  },
+  "GachaADV_Location1_hub": {
+    "action": "Click",
+    "target": [
+      560,
+      262,
+      10,
+      10
+    ],
+    "post_delay": 500,
+    "next": [
+      "GachaADV_Location1_Ck",
+      "GachaADV_Location1"
+    ],
+    "interrupt": [
+      "GachaADV_SkipPV"
     ]
   },
   "GachaADV_Location1_Ck": {
@@ -385,6 +399,10 @@
       "GachaADV_TouchFreeGacha",
       "GachaADV_Special_ReservedRights",
       "GachaADV_HaveNotAnyRed"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location2_Post"
     ]
   },
   "GachaADV_Location1_90LotPost": {
@@ -431,12 +449,28 @@
       "GachaADV_Location2_NoPool_Clr",
       "GachaADV_Location2_NoPool_Tmp",
       "GachaADV_Location2"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location3_Pre",
+      "GachaADV_Location3_NoPool_Clr",
+      "GachaADV_Location3_NoPool_Tmp",
+      "GachaADV_Location3",
+      "GachaADV_Location4_Pre",
+      "GachaADV_Location4_NoPool_Clr",
+      "GachaADV_Location4_NoPool_Tmp",
+      "GachaADV_Location4",
+      "GachaADV_Location5_Pre",
+      "GachaADV_Location5_NoPool_Clr",
+      "GachaADV_Location5_NoPool_Tmp",
+      "GachaADV_Location5"
     ]
   },
   "GachaADV_Location2": {
     "recognition": "TemplateMatch",
     "template": [
-      "GACHA_ListFull_GE.png"
+      "GACHA_ListFull_GE.png",
+      "GACHA_ListFull3.png"
     ],
     "green_mask": true,
     "roi": [
@@ -449,17 +483,31 @@
     "post_delay": 1000,
     "focus": "GAB.进入卡池列位置2",
     "next": [
-      "GachaADV_Location2_Ck",
-      "GachaADV_Location2"
-    ],
-    "interrupt": [
-      "GachaADV_SkipPV"
+      "GachaADV_Location2_hub"
     ],
     "target_offset": [
       -80,
       25,
       0,
       0
+    ],
+    "timeout": 3000
+  },
+  "GachaADV_Location2_hub": {
+    "action": "Click",
+    "target": [
+      560,
+      262,
+      10,
+      10
+    ],
+    "post_delay": 500,
+    "next": [
+      "GachaADV_Location2_Ck",
+      "GachaADV_Location2"
+    ],
+    "interrupt": [
+      "GachaADV_SkipPV"
     ]
   },
   "GachaADV_Location2_Ck": {
@@ -499,6 +547,10 @@
       "GachaADV_TouchFreeGacha",
       "GachaADV_Special_ReservedRights",
       "GachaADV_HaveNotAnyRed"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location3_Post"
     ]
   },
   "GachaADV_Location2_90LotPost": {
@@ -544,12 +596,24 @@
       "GachaADV_Location3_NoPool_Clr",
       "GachaADV_Location3_NoPool_Tmp",
       "GachaADV_Location3"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location4_Pre",
+      "GachaADV_Location4_NoPool_Clr",
+      "GachaADV_Location4_NoPool_Tmp",
+      "GachaADV_Location4",
+      "GachaADV_Location5_Pre",
+      "GachaADV_Location5_NoPool_Clr",
+      "GachaADV_Location5_NoPool_Tmp",
+      "GachaADV_Location5"
     ]
   },
   "GachaADV_Location3": {
     "recognition": "TemplateMatch",
     "template": [
-      "GACHA_ListFull_GE.png"
+      "GACHA_ListFull_GE.png",
+      "GACHA_ListFull3.png"
     ],
     "green_mask": true,
     "roi": [
@@ -562,17 +626,30 @@
     "post_delay": 1000,
     "focus": "GAB.进入卡池列位置3",
     "next": [
-      "GachaADV_Location3_Ck",
-      "GachaADV_Location3"
-    ],
-    "interrupt": [
-      "GachaADV_SkipPV"
+      "GachaADV_Location3_hub"
     ],
     "target_offset": [
       -80,
       25,
       0,
       0
+    ]
+  },
+  "GachaADV_Location3_hub": {
+    "action": "Click",
+    "target": [
+      560,
+      262,
+      10,
+      10
+    ],
+    "post_delay": 500,
+    "next": [
+      "GachaADV_Location3_Ck",
+      "GachaADV_Location3"
+    ],
+    "interrupt": [
+      "GachaADV_SkipPV"
     ]
   },
   "GachaADV_Location3_Ck": {
@@ -612,6 +689,10 @@
       "GachaADV_TouchFreeGacha",
       "GachaADV_Special_ReservedRights",
       "GachaADV_HaveNotAnyRed"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location4_Post"
     ]
   },
   "GachaADV_Location3_90LotPost": {
@@ -657,12 +738,20 @@
       "GachaADV_Location4_NoPool_Clr",
       "GachaADV_Location4_NoPool_Tmp",
       "GachaADV_Location4"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location5_Pre",
+      "GachaADV_Location5_NoPool_Clr",
+      "GachaADV_Location5_NoPool_Tmp",
+      "GachaADV_Location5"
     ]
   },
   "GachaADV_Location4": {
     "recognition": "TemplateMatch",
     "template": [
-      "GACHA_ListFull_GE.png"
+      "GACHA_ListFull_GE.png",
+      "GACHA_ListFull3.png"
     ],
     "green_mask": true,
     "roi": [
@@ -675,17 +764,30 @@
     "post_delay": 1000,
     "focus": "GAB.进入卡池列位置4",
     "next": [
-      "GachaADV_Location4_Ck",
-      "GachaADV_Location4"
-    ],
-    "interrupt": [
-      "GachaADV_SkipPV"
+      "GachaADV_Location4_hub"
     ],
     "target_offset": [
       -80,
       25,
       0,
       0
+    ]
+  },
+  "GachaADV_Location4_hub": {
+    "action": "Click",
+    "target": [
+      560,
+      262,
+      10,
+      10
+    ],
+    "post_delay": 500,
+    "next": [
+      "GachaADV_Location4_Ck",
+      "GachaADV_Location4"
+    ],
+    "interrupt": [
+      "GachaADV_SkipPV"
     ]
   },
   "GachaADV_Location4_Ck": {
@@ -747,6 +849,10 @@
       "GachaADV_TouchFreeGacha",
       "GachaADV_Special_ReservedRights",
       "GachaADV_HaveNotAnyRed"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Location5_Post"
     ]
   },
   "GachaADV_Location5_Pre": {
@@ -775,7 +881,8 @@
   "GachaADV_Location5": {
     "recognition": "TemplateMatch",
     "template": [
-      "GACHA_ListFull_GE.png"
+      "GACHA_ListFull_GE.png",
+      "GACHA_ListFull3.png"
     ],
     "green_mask": true,
     "roi": [
@@ -788,17 +895,30 @@
     "post_delay": 1000,
     "focus": "GAB.进入卡池列位置5",
     "next": [
-      "GachaADV_Location5_90LotPost",
-      "GachaADV_Location5_Post"
-    ],
-    "interrupt": [
-      "GachaADV_SkipPV"
+      "GachaADV_Location5_hub"
     ],
     "target_offset": [
       -80,
       25,
       0,
       0
+    ]
+  },
+  "GachaADV_Location5_hub": {
+    "action": "Click",
+    "target": [
+      560,
+      262,
+      10,
+      10
+    ],
+    "post_delay": 500,
+    "next": [
+      "GachaADV_Location5_Ck",
+      "GachaADV_Location5"
+    ],
+    "interrupt": [
+      "GachaADV_SkipPV"
     ]
   },
   "GachaADV_Location5_Ck": {

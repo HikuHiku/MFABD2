@@ -183,7 +183,7 @@ jobs:
         id: git-cliff
         with:
           config: .github/cliff.toml
-          args: -vv --latest --strip header
+          args: -vv --tag ${{ needs.meta.outputs.tag }} --strip header
         env:
           OUTPUT: current_changelog.md
           GITHUB_REPO: ${{ github.repository }}
@@ -252,10 +252,10 @@ jobs:
             
             **构建信息**:
             - 版本: `${{ needs.meta.outputs.tag }}`
-            - 类型: ${{ needs.meta.outputs.is_tag_push == 'true' && '正式版' || '开发版' }}
+            - 类型: ${{ needs.meta.outputs.is_tag_push == 'true' && '正式版' || (contains(needs.meta.outputs.tag, '-beta') && '内测版' || '开发版') }}
             - 构建时间: ${{ steps.get_time.outputs.time }}
           draft: false
-          prerelease: ${{ needs.meta.outputs.is_dev_version == 'true' }}
+          prerelease: ${{ contains(needs.meta.outputs.tag, '-beta') }}
         env:  # 添加环境变量以支持高限额API调用
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           

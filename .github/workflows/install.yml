@@ -250,7 +250,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # ✅ 获取完整历史
+          ref: ${{ github.ref }}  # ✅ 确保检出正确引用
 
       - name: Trigger MirrorChyanUploading
         if: github.repository_owner == 'sunyink' && ((needs.meta.outputs.is_tag_push == 'true') || contains(needs.meta.outputs.tag, '-beta'))

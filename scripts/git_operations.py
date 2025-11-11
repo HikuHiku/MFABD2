@@ -6,7 +6,22 @@ Git操作模块 - 获取精确的提交列表（修复编码问题）
 import subprocess
 import re
 from typing import List, Dict, Optional
+from version_rules import filter_valid_versions, sort_versions
 
+def get_all_tags() -> list:
+    """获取所有Git标签"""
+    try:
+        result = subprocess.run(
+            ["git", "tag", "-l", "v*"],
+            capture_output=True, 
+            text=True,
+            check=True
+        )
+        tags = [tag for tag in result.stdout.strip().split('\n') if tag]
+        return tags
+    except Exception as e:
+        print(f"获取Git标签失败: {e}")
+        return []
 def run_git_command(args: List[str]) -> str:
     """运行Git命令并返回输出（修复编码问题）"""
     try:
@@ -154,6 +169,49 @@ def test_git_operations_simple():
         print("  - 标签顺序特殊")
         print("  - 可以尝试其他标签范围")
 
+def get_all_tags() -> list:
+    """获取所有Git标签"""
+    try:
+        result = subprocess.run(
+            ["git", "tag", "-l", "v*"],
+            capture_output=True, 
+            text=True,
+            check=True
+        )
+        tags = [tag for tag in result.stdout.strip().split('\n') if tag]
+        return tags
+    except Exception as e:
+        print(f"获取Git标签失败: {e}")
+        return []
+
+def ensure_reference_exists(ref: str) -> bool:
+    """确保Git引用存在"""
+    result = run_git_command(["rev-parse", "--verify", ref])
+    return bool(result)
+
+def safe_get_commit_list(from_ref: str, to_ref: str) -> List[Dict]:
+    """安全的提交列表获取（处理引用不存在的情况）"""
+    
+    # 确保引用存在
+    if not ensure_reference_exists(from_ref):
+        print(f"警告: 引用 {from_ref} 不存在，尝试使用默认基准")
+        # 尝试使用最新的正式版作为基准
+        all_tags = get_all_tags()
+        filtered = filter_valid_versions(all_tags)
+        if filtered['formal']:
+            from_ref = sort_versions(filtered['formal'])[0]
+            print(f"使用最新正式版作为基准: {from_ref}")
+        else:
+            # 如果没有正式版，使用初始提交
+            from_ref = "HEAD~100"
+            print(f"使用初始提交作为基准: {from_ref}")
+    
+    if not ensure_reference_exists(to_ref):
+        print(f"警告: 引用 {to_ref} 不存在，使用HEAD")
+        to_ref = "HEAD"
+    
+    return get_commit_list(from_ref, to_ref)
+
 def test_specific_range():
     """测试特定的提交范围"""
     print("\n=== 测试特定提交范围 ===")
@@ -166,6 +224,16 @@ def test_specific_range():
     commits = get_commit_list(test_from, test_to)
     print(f"详细提交数量: {len(commits)}")
 
+def test_safe_operations():
+    """测试安全操作"""
+    print("\n=== 测试安全Git操作 ===")
+    
+    # 测试不存在的引用
+    print("测试不存在的引用处理...")
+    commits = safe_get_commit_list("main", "v2.3.5")
+    print(f"安全操作提交数量: {len(commits)}")
+
 if __name__ == "__main__":
     test_git_operations_simple()
     test_specific_range()
+    test_safe_operations()

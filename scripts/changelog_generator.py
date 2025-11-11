@@ -113,9 +113,10 @@ def main():
     compare_base = calculate_compare_base(current_tag)
     print(f"对比基准: {compare_base}")
     
-    # 获取提交列表
+    # 获取提交列表（使用安全版本）
     print("获取提交列表...")
-    commits = get_commit_list(compare_base, current_tag)
+    from git_operations import safe_get_commit_list  # ✅ 添加导入
+    commits = safe_get_commit_list(compare_base, current_tag)
     print(f"获取到 {len(commits)} 个提交")
     
     # 生成变更日志

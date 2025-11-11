@@ -81,8 +81,29 @@ def find_latest_formal_release() -> Optional[str]:
     formal_versions = sort_versions(filtered['formal'])
     return formal_versions[0] if formal_versions else None
 
+def find_safe_compare_base() -> str:
+    """在CI环境中找到安全的对比基准"""
+    # 尝试获取所有标签
+    all_tags = get_all_tags()
+    if not all_tags:
+        return "HEAD~100"  # 回退一些提交
+    
+    # 过滤有效的正式版
+    filtered = filter_valid_versions(all_tags)
+    if filtered['formal']:
+        # 使用最新的正式版
+        latest_formal = sort_versions(filtered['formal'])[0]
+        print(f"安全策略: 使用最新正式版 {latest_formal}")
+        return latest_formal
+    else:
+        # 使用最新的标签（任何类型）
+        all_sorted = sort_versions(all_tags)
+        latest_tag = all_sorted[0]
+        print(f"安全策略: 使用最新标签 {latest_tag}")
+        return latest_tag
+
 def calculate_compare_base(current_tag: str) -> str:
-    """计算对比基准版本"""
+    """计算对比基准版本（CI环境兼容版）"""
     current_branch = get_current_branch()
     is_main = is_main_branch(current_branch)
     
@@ -97,48 +118,35 @@ def calculate_compare_base(current_tag: str) -> str:
             return previous_formal
         else:
             print("策略: 正式版 -> 没有更早的正式版，对比初始提交")
-            return "HEAD~1000"  # 回退很多次提交
+            return "HEAD~100"  # 回退一些提交
     
-    # 策略2: 如果是内测版
-    elif is_valid_beta_version(current_tag):
+    # 策略2: 如果是内测版或开发版
+    elif is_valid_beta_version(current_tag) or is_valid_ci_version(current_tag):
         if is_main:
-            # 主分支内测版：对比最新的正式版
+            # 主分支内测版/开发版：对比最新的正式版
             latest_formal = find_latest_formal_release()
             if latest_formal:
-                print(f"策略: 主分支内测版 -> 对比最新正式版: {latest_formal}")
+                version_type = current_tag.split('-')[1]
+                print(f"策略: 主分支{version_type}版 -> 对比最新正式版: {latest_formal}")
                 return latest_formal
             else:
-                print("策略: 主分支内测版 -> 没有正式版，对比初始提交")
-                return "HEAD~1000"
+                version_type = current_tag.split('-')[1]
+                print(f"策略: 主分支{version_type}版 -> 没有正式版，对比初始提交")
+                return "HEAD~100"
         else:
-            # 开发分支内测版：对比主分支最新提交
-            print("策略: 开发分支内测版 -> 对比主分支最新提交")
-            return "main"
+            # 开发分支内测版/开发版：使用安全的对比策略
+            version_type = current_tag.split('-')[1]
+            print(f"策略: 开发分支{version_type}版 -> 使用安全对比策略")
+            return find_safe_compare_base()
     
-    # 策略3: 如果是开发版
-    elif is_valid_ci_version(current_tag):
-        if is_main:
-            # 主分支开发版：对比最新的正式版
-            latest_formal = find_latest_formal_release()
-            if latest_formal:
-                print(f"策略: 主分支开发版 -> 对比最新正式版: {latest_formal}")
-                return latest_formal
-            else:
-                print("策略: 主分支开发版 -> 没有正式版，对比初始提交")
-                return "HEAD~1000"
-        else:
-            # 开发分支开发版：对比主分支最新提交
-            print("策略: 开发分支开发版 -> 对比主分支最新提交")
-            return "main"
-    
-    # 策略4: 其他情况（未知格式）
+    # 策略3: 其他情况
     else:
         print("策略: 未知版本格式 -> 对比最新的正式版")
         latest_formal = find_latest_formal_release()
         if latest_formal:
             return latest_formal
         else:
-            return "HEAD~1"
+            return "HEAD~100"
 
 if __name__ == "__main__":
     # 测试不同的场景

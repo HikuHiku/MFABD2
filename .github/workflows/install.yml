@@ -258,9 +258,9 @@ jobs:
         run: |
           echo "安全触发镜像服务: 版本=$tag"
           # 触发包发布流程
-          gh workflow run mirrorchyan.yml --ref ${{ github.ref }} -f tag=$tag
+          gh workflow run --repo $GITHUB_REPOSITORY --ref ${{ github.ref }} mirrorchyan.yml -f tag=$tag
           # 触发更新信息推送流程
-          gh workflow run mirrorchyan_release_note.yml --ref ${{ github.ref }} -f tag=$tag -f body="$body"
+          gh workflow run --repo $GITHUB_REPOSITORY --ref ${{ github.ref }} mirrorchyan_release_note.yml -f tag=$tag -f body="$body"
 
   notify:
     needs: [meta, install]

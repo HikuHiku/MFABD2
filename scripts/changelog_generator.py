@@ -10,6 +10,7 @@ from typing import List, Dict
 from version_logic import calculate_compare_base
 from git_operations import get_commit_list
 from version_rules import filter_valid_versions, sort_versions
+from history_manager import HistoryManager
 
 def group_commits_by_type(commits: List[Dict]) -> Dict[str, List[Dict]]:
     """按提交类型分组（简化版本，后续可以改进）"""
@@ -142,9 +143,9 @@ def generate_changelog_content(commits: List[Dict], current_tag: str, compare_ba
                 changelog += format_commit_message(commit) + "\n"
             changelog += "\n"
     
-    changelog += f"**对比范围**: {compare_base} → {current_tag}\n"
-
     changelog += "[已有 Mirror酱 CDK？前往 Mirror酱 高速下载](https://mirrorchyan.com/zh/projects?rid=MFABD2)\n\n"
+
+    changelog += f"**对比范围**: {compare_base} → {current_tag}\n"
 
     return changelog
 
@@ -172,9 +173,13 @@ def main():
     commits = safe_get_commit_list(compare_base, current_tag)
     print(f"获取到 {len(commits)} 个提交")
     
-    # 生成变更日志
-    print("生成变更日志...")
+    # 生成基础变更日志
+    print("生成基础变更日志...")
     changelog_content = generate_changelog_content(commits, current_tag, compare_base)
+    
+    # 添加历史版本内容
+    print("添加历史版本...")
+    changelog_content = add_historical_versions(changelog_content, current_tag)
     
     # 输出到文件
     output_file = "../CHANGES.md"
@@ -219,3 +224,56 @@ if __name__ == "__main__":
     else:
         # 正常模式
         main()
+
+def add_historical_versions(current_changelog: str, current_tag: str) -> str:
+    """添加历史版本折叠内容"""
+    print("准备获取历史版本...")
+    
+    # 获取环境变量
+    github_token = os.environ.get('GITHUB_TOKEN')
+    github_repository = os.environ.get('GITHUB_REPOSITORY')
+    
+    if not github_token or not github_repository:
+        print("缺少GitHub环境变量，跳过历史版本")
+        return current_changelog
+    
+    try:
+        repo_owner, repo_name = github_repository.split('/')
+        manager = HistoryManager(github_token, repo_owner, repo_name)
+        
+        # 获取同次版本的历史Release
+        historical_releases = manager.get_minor_version_series(current_tag)
+        
+        if not historical_releases:
+            print("没有找到相关历史版本")
+            return current_changelog
+        
+        # 构建历史版本折叠内容
+        historical_section = "\n## 历史版本更新内容\n\n"
+        
+        for release in historical_releases:
+            tag = release['tag_name']
+            published_at = release.get('published_at', '')[:10] if release.get('published_at') else "未知日期"
+            body = release.get('body', '') or ""
+            
+            # 截断处理
+            truncated_body = manager.truncate_release_body(body)
+            if not truncated_body.strip():
+                continue
+            
+            historical_section += f"""<details>
+<summary>{tag} ({published_at})</summary>
+
+{truncated_body}
+
+</details>
+
+"""
+        
+        print(f"成功添加 {len(historical_releases)} 个历史版本")
+        return current_changelog + historical_section
+        
+    except Exception as e:
+        print(f"❌ 历史版本处理失败: {e}")
+        # 不终止作业，返回原始内容
+        return current_changelog

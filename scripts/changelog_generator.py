@@ -5,6 +5,7 @@
 
 import os
 import sys
+import re
 from typing import List, Dict
 from version_logic import calculate_compare_base
 from git_operations import get_commit_list
@@ -45,18 +46,44 @@ def group_commits_by_type(commits: List[Dict]) -> Dict[str, List[Dict]]:
     
     return groups
 
+def clean_commit_message(subject: str) -> str:
+    """清理提交信息，移除类型前缀"""
+    # 匹配模式：类型(作用域): 信息（支持中英文冒号）
+    patterns = [
+        r'^(feat|fix|docs|style|refactor|test|chore|impr|perf|build|ci|revert)(\(\w+\))?\s*[：:]\s*',  # 中英文冒号
+        r'^(Feat|Fix|Docs|Style|Refactor|Test|Chore|Impr|Perf|Build|Ci|Revert)(\(\w+\))?\s*[：:]\s*',  # 首字母大写
+        r'^(FEAT|FIX|DOCS|STYLE|REFACTOR|TEST|CHORE|IMPR|PERF|BUILD|CI|REVERT)(\(\w+\))?\s*[：:]\s*',  # 全大写
+    ]
+    
+    for pattern in patterns:
+        cleaned = re.sub(pattern, '', subject)
+        if cleaned != subject:
+            return cleaned
+    
+    return subject
+
+def detect_breaking_change(commit: Dict) -> bool:
+    """检测是否为破坏性变更（预埋逻辑）"""
+    body = commit.get('body', '')
+    subject = commit.get('subject', '')
+    
+    breaking_patterns = [
+        r'BREAKING CHANGE',
+        r'BREAKING-CHANGE', 
+        r'^.*!:',  # feat!: 破坏性变更
+    ]
+    
+    return any(re.search(pattern, body + subject, re.IGNORECASE) for pattern in breaking_patterns)
+
 def format_commit_message(commit: Dict) -> str:
-    """格式化单个提交信息"""
+    """格式化单个提交信息，清理类型前缀"""
     subject = commit['subject']
     author = commit['author_name']
     
-    # 移除类型前缀，让消息更可读
-    if ': ' in subject:
-        message = subject.split(': ', 1)[1]
-    else:
-        message = subject
+    # 清理提交信息（移除类型前缀）
+    cleaned_subject = clean_commit_message(subject)
     
-    return f"- {message} @{author}"
+    return f"- {cleaned_subject} @{author}"
 
 def generate_changelog_content(commits: List[Dict], current_tag: str, compare_base: str) -> str:
     """生成变更日志内容"""
@@ -91,8 +118,10 @@ def generate_changelog_content(commits: List[Dict], current_tag: str, compare_ba
                 changelog += format_commit_message(commit) + "\n"
             changelog += "\n"
     
-    changelog += f"**对比范围**: {compare_base}..{current_tag}\n"
-    
+    changelog += f"**对比范围**: {compare_base} → {current_tag}\n"
+
+    changelog += "[已有 Mirror酱 CDK？前往 Mirror酱 高速下载](https://mirrorchyan.com/zh/projects?rid=MFABD2)\n\n"
+        
     return changelog
 
 def main():

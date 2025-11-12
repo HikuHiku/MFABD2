@@ -149,6 +149,59 @@ def generate_changelog_content(commits: List[Dict], current_tag: str, compare_ba
 
     return changelog
 
+def add_historical_versions(current_changelog: str, current_tag: str) -> str:
+    """添加历史版本折叠内容"""
+    print("准备获取历史版本...")
+    
+    # 获取环境变量
+    github_token = os.environ.get('GITHUB_TOKEN')
+    github_repository = os.environ.get('GITHUB_REPOSITORY')
+    
+    if not github_token or not github_repository:
+        print("缺少GitHub环境变量，跳过历史版本")
+        return current_changelog
+    
+    try:
+        repo_owner, repo_name = github_repository.split('/')
+        manager = HistoryManager(github_token, repo_owner, repo_name)
+        
+        # 获取同次版本的历史Release
+        historical_releases = manager.get_minor_version_series(current_tag)
+        
+        if not historical_releases:
+            print("没有找到相关历史版本")
+            return current_changelog
+        
+        # 构建历史版本折叠内容
+        historical_section = "\n## 历史版本更新内容\n\n"
+        
+        for release in historical_releases:
+            tag = release['tag_name']
+            published_at = release.get('published_at', '')[:10] if release.get('published_at') else "未知日期"
+            body = release.get('body', '') or ""
+            
+            # 截断处理
+            truncated_body = manager.truncate_release_body(body)
+            if not truncated_body.strip():
+                continue
+            
+            historical_section += f"""<details>
+<summary>{tag} ({published_at})</summary>
+
+{truncated_body}
+
+</details>
+
+"""
+        
+        print(f"成功添加 {len(historical_releases)} 个历史版本")
+        return current_changelog + historical_section
+        
+    except Exception as e:
+        print(f"❌ 历史版本处理失败: {e}")
+        # 不终止作业，返回原始内容
+        return current_changelog
+
 def main():
     """主函数"""
     print("=== 变更日志生成器 ===\n")
@@ -224,56 +277,3 @@ if __name__ == "__main__":
     else:
         # 正常模式
         main()
-
-def add_historical_versions(current_changelog: str, current_tag: str) -> str:
-    """添加历史版本折叠内容"""
-    print("准备获取历史版本...")
-    
-    # 获取环境变量
-    github_token = os.environ.get('GITHUB_TOKEN')
-    github_repository = os.environ.get('GITHUB_REPOSITORY')
-    
-    if not github_token or not github_repository:
-        print("缺少GitHub环境变量，跳过历史版本")
-        return current_changelog
-    
-    try:
-        repo_owner, repo_name = github_repository.split('/')
-        manager = HistoryManager(github_token, repo_owner, repo_name)
-        
-        # 获取同次版本的历史Release
-        historical_releases = manager.get_minor_version_series(current_tag)
-        
-        if not historical_releases:
-            print("没有找到相关历史版本")
-            return current_changelog
-        
-        # 构建历史版本折叠内容
-        historical_section = "\n## 历史版本更新内容\n\n"
-        
-        for release in historical_releases:
-            tag = release['tag_name']
-            published_at = release.get('published_at', '')[:10] if release.get('published_at') else "未知日期"
-            body = release.get('body', '') or ""
-            
-            # 截断处理
-            truncated_body = manager.truncate_release_body(body)
-            if not truncated_body.strip():
-                continue
-            
-            historical_section += f"""<details>
-<summary>{tag} ({published_at})</summary>
-
-{truncated_body}
-
-</details>
-
-"""
-        
-        print(f"成功添加 {len(historical_releases)} 个历史版本")
-        return current_changelog + historical_section
-        
-    except Exception as e:
-        print(f"❌ 历史版本处理失败: {e}")
-        # 不终止作业，返回原始内容
-        return current_changelog

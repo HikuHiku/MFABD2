@@ -3,7 +3,7 @@ name: mirrorchyan_release_note
 on:
   workflow_dispatch:
     inputs:
-      target_version:
+      release_version:
         description: '目标版本号'
         required: true
         type: string

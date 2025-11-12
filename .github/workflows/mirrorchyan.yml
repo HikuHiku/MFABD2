@@ -20,7 +20,9 @@ jobs:
           filename: "MFABD2-*-win-x86_64.zip"
 
           mirrorchyan_rid: MFABD2
-          
+
+          owner: sunyink
+          repo: MFABD2
           upload_token: ${{ secrets.MirrorChyanUploadToken }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           os: win
@@ -40,5 +42,7 @@ jobs:
 
           mirrorchyan_rid: MFABD2
 
+          owner: sunyink
+          repo: MFABD2
           upload_token: ${{ secrets.MirrorChyanUploadToken }}
           github_token: ${{ secrets.GITHUB_TOKEN }}

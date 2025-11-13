@@ -323,7 +323,8 @@
     "recognition": "TemplateMatch",
     "template": [
       "GACHA_ListFull_GE.png",
-      "GACHA_ListFull2_GE.png"
+      "GACHA_ListFull2_GE.png",
+      "GACHA_ListFull3.png"
     ],
     "green_mask": true,
     "roi": [
@@ -463,7 +464,8 @@
       "GachaADV_Location5_Pre",
       "GachaADV_Location5_NoPool_Clr",
       "GachaADV_Location5_NoPool_Tmp",
-      "GachaADV_Location5"
+      "GachaADV_Location5",
+      "GachaADV_Slip"
     ]
   },
   "GachaADV_Location2": {
@@ -606,7 +608,8 @@
       "GachaADV_Location5_Pre",
       "GachaADV_Location5_NoPool_Clr",
       "GachaADV_Location5_NoPool_Tmp",
-      "GachaADV_Location5"
+      "GachaADV_Location5",
+      "GachaADV_Slip"
     ]
   },
   "GachaADV_Location3": {
@@ -744,7 +747,8 @@
       "GachaADV_Location5_Pre",
       "GachaADV_Location5_NoPool_Clr",
       "GachaADV_Location5_NoPool_Tmp",
-      "GachaADV_Location5"
+      "GachaADV_Location5",
+      "GachaADV_Slip"
     ]
   },
   "GachaADV_Location4": {
@@ -876,6 +880,10 @@
       "GachaADV_Location5_NoPool_Clr",
       "GachaADV_Location5_NoPool_Tmp",
       "GachaADV_Location5"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "GachaADV_Slip"
     ]
   },
   "GachaADV_Location5": {
@@ -1266,11 +1274,11 @@
     ],
     "end": [
       210,
-      150,
+      220,
       0,
       0
     ],
-    "duration": 400,
+    "duration": 600,
     "end_hold": 1000,
     "post_wait_freezes": 1000,
     "doc": "下滑寻找免费抽卡"

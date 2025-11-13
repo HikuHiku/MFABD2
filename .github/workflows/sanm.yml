@@ -12,6 +12,10 @@ on:
       is_dev_version:
         required: true
         type: string
+      ci_as_stable:
+        required: false
+        type: boolean
+        default: false
       commit_sha:
         required: true
         type: string

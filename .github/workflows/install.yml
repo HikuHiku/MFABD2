@@ -23,6 +23,10 @@ on:
         type: boolean
         description: '发布内测版'
         default: false  # 默认不勾选，避免误触
+      ci_as_stable:
+        type: boolean
+        description: 'CI版本作为正式发布（非预发布）'
+        default: false
 
 jobs:
   meta:
@@ -205,7 +209,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
   release:
-    if: (needs.meta.outputs.is_tag_push == 'true') || contains(needs.meta.outputs.tag, '-beta')
+    if: (needs.meta.outputs.is_tag_push == 'true') || contains(needs.meta.outputs.tag, '-beta') || (github.event_name == 'workflow_dispatch' && contains(needs.meta.outputs.tag, '-ci'))
     needs: [meta, install, changelog]
     runs-on: ubuntu-latest
     steps:
@@ -244,7 +248,7 @@ jobs:
             - 分支: ${{ github.ref_name }}
             - 构建时间: ${{ steps.get_time.outputs.time }}
           draft: false
-          prerelease: ${{ contains(needs.meta.outputs.tag, '-beta') }}
+          prerelease: ${{ contains(needs.meta.outputs.tag, '-beta') || (contains(needs.meta.outputs.tag, '-ci') && !(github.event_name == 'workflow_dispatch' && github.event.inputs.ci_as_stable == 'true')) }}
         env:  # 添加环境变量以支持高限额API调用
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
@@ -270,6 +274,7 @@ jobs:
       build_url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
       tag: ${{ needs.meta.outputs.tag }}
       is_dev_version: ${{ needs.meta.outputs.is_dev_version }}
+      ci_as_stable: ${{ inputs.ci_as_stable }}
       commit_sha: ${{ github.sha }}
       commit_message: ${{ github.event.head_commit.message }}
       commit_timestamp: ${{ github.event.head_commit.timestamp }}

@@ -439,12 +439,21 @@
         "next": [
             "Collect_Skill2_2_perOcr",
             "Collect_Skill2_2_Nothing",
-            "Collect_Skill2_2_perClr"
+            "Collect_Skill2_2_perClr",
+            "Collect_Skill2_3_perOcr",
+            "Collect_Skill2_3_perClr",
+            "Collect_Skill2_3_Nothing",
+            "Collect_Skill2_4_perOcr",
+            "Collect_Skill2_4_perClr",
+            "Collect_Skill2_4_Nothing",
+            "Collect_Skill2_5_perOcr",
+            "Collect_Skill2_5_perClr",
+            "Collect_Skill2_5_Nothing"
         ],
         "focus": "CSB.施放次数已满,栏位2-1",
-        "timeout": 8000,
+        "timeout": 5000,
         "on_error": [
-            "Collect_Skill2_3_perOcr"
+            "Collect_Skill2_1~5_Unable"
         ],
         "roi": [
             963,
@@ -462,12 +471,18 @@
         "next": [
             "Collect_Skill2_3_perOcr",
             "Collect_Skill2_3_Nothing",
-            "Collect_Skill2_3_perClr"
+            "Collect_Skill2_3_perClr",
+            "Collect_Skill2_4_perOcr",
+            "Collect_Skill2_4_perClr",
+            "Collect_Skill2_4_Nothing",
+            "Collect_Skill2_5_perOcr",
+            "Collect_Skill2_5_perClr",
+            "Collect_Skill2_5_Nothing"
         ],
         "focus": "CSB.施放次数已满,栏位2-2",
-        "timeout": 8000,
+        "timeout": 5000,
         "on_error": [
-            "Collect_Skill2_4_perOcr"
+            "Collect_Skill2_1~5_Unable"
         ],
         "roi": [
             942,
@@ -485,11 +500,14 @@
         "next": [
             "Collect_Skill2_4_perOcr",
             "Collect_Skill2_4_Nothing",
-            "Collect_Skill2_4_perClr"
+            "Collect_Skill2_4_perClr",
+            "Collect_Skill2_5_perOcr",
+            "Collect_Skill2_5_perClr",
+            "Collect_Skill2_5_Nothing"
         ],
-        "timeout": 8000,
+        "timeout": 5000,
         "on_error": [
-            "Collect_Skill2_5_perOcr"
+            "Collect_Skill2_1~5_Unable"
         ],
         "focus": "CSB.施放次数已满,栏位2-3",
         "roi": [
@@ -746,9 +764,9 @@
         ],
         "count": 100,
         "lower": [
-            178,
-            178,
-            177
+            253,
+            253,
+            252
         ],
         "upper": [
             255,

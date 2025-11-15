@@ -749,11 +749,13 @@
     "recognition": "OCR",
     "next": [
       "Collect_TargetMap2_Special_Right",
-      "Collect_TargetMap3"
+      "Collect_TargetMap3",
+      "Collect_Architecture_Underlying_Logic_Protection"
     ],
     "interrupt": [
-      "Collect_TeleporNotFind",
-      "Collect_ClickTeleporCircleMap"
+      "Collect_ClickTeleporCircleMap",
+      "Collect_Protection_ReturnToAreaMap",
+      "Collect_TeleporNotFind"
     ],
     "focus": "确认区域地图tp2",
     "roi": [
@@ -798,11 +800,13 @@
     "next": [
       "Collect_TargetMap4",
       "Collect_QuickCart_TargetMapEnd",
-      "Collect_QuickCart_FastUI"
+      "Collect_QuickCart_FastUI",
+      "Collect_Architecture_Underlying_Logic_Protection"
     ],
     "interrupt": [
-      "Collect_TeleporNotFind",
-      "Collect_ClickTeleporCircleMap"
+      "Collect_ClickTeleporCircleMap",
+      "Collect_Protection_ReturnToAreaMap",
+      "Collect_TeleporNotFind"
     ],
     "timeout": 3000,
     "on_error": [
@@ -852,11 +856,13 @@
     "recognition": "OCR",
     "next": [
       "Collect_QuickCart_TargetMapEnd",
-      "Collect_QuickCart_FastUI"
+      "Collect_QuickCart_FastUI",
+      "Collect_Architecture_Underlying_Logic_Protection"
     ],
     "interrupt": [
-      "Collect_TeleporNotFind",
-      "Collect_ClickTeleporCircleMap"
+      "Collect_ClickTeleporCircleMap",
+      "Collect_Protection_ReturnToAreaMap",
+      "Collect_TeleporNotFind"
     ],
     "timeout": 3000,
     "on_error": [
@@ -1021,6 +1027,61 @@
       0
     ],
     "doc": "维护点C02末端.快速卡带pipeline_override了此处next，去了C_QuickCart_TargetMapEnd,因为是中断内next，故必须结束退回上一个流程，单独end"
+  },
+  "Collect_Architecture_Underlying_Logic_Protection": {
+    "recognition": "OCR",
+    "focus": "CM-P.[WRN]状态机底层逻辑防护被触发",
+    "next": "Collect_QuickCart_HomePageHub2",
+    "roi": [
+      408,
+      622,
+      466,
+      47
+    ],
+    "expected": [
+      "达雷普旅馆",
+      "雷瓦汀基地救护站",
+      "拉勒凯旅馆",
+      "罗戴夫旅馆",
+      "施塔因之塔宿舍",
+      "旅馆",
+      "救护站"
+    ],
+    "replace": [
+      [
+        "安全",
+        ""
+      ],
+      [
+        "战斗",
+        ""
+      ]
+    ],
+    "target": [
+      120,
+      35,
+      0,
+      0
+    ],
+    "doc": "维护点C06.切图状态机如果OCR识别出错,可能导致脚本停留在图1,但实际已执行到图2,最后过量切图到旅店后面,会循环卡住。定性为状态机思维框架底层bug，难修危害大。此节点作为额外守护，放入next中。直接结束卡带内流程，最多断臂卡带内剩下资源，但不会全部卡死。"
+  },
+  "Collect_Protection_ReturnToAreaMap": {
+    "recognition": "TemplateMatch",
+    "next": [
+      "Collect_FindTeleporCircle0.9"
+    ],
+    "focus": "CM-P.[WRN]状态机守护被触发-切图环节-恢复到区域地图界面",
+    "roi": [
+      1047,
+      516,
+      107,
+      110
+    ],
+    "template": [
+      "Run.png"
+    ],
+    "green_mask": true,
+    "doc": "找到run,此时应该在区域地图,但在主页,异常处理"
   },
   "Collect_TeleporNotFind": {
     "recognition": "TemplateMatch",

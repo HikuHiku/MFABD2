@@ -707,7 +707,9 @@
     "recognition": "OCR",
     "next": [
       "Collect_TargetMap1_Special_Right",
-      "Collect_TargetMap2"
+      "Collect_TargetMap2",
+      "Collect_TargetMap3",
+      "Collect_TargetMap4"
     ],
     "interrupt": [
       "Collect_ClickTeleporCircleMap",
@@ -716,10 +718,10 @@
     ],
     "focus": "确认区域地图tp1",
     "roi": [
-      418,
-      629,
-      438,
-      31
+      408,
+      622,
+      466,
+      47
     ],
     "expected": [
       "达普雷镇",
@@ -750,6 +752,8 @@
     "next": [
       "Collect_TargetMap2_Special_Right",
       "Collect_TargetMap3",
+      "Collect_TargetMap4",
+      "Collect_QuickCart_TargetMapEnd",
       "Collect_Architecture_Underlying_Logic_Protection"
     ],
     "interrupt": [
@@ -759,10 +763,10 @@
     ],
     "focus": "确认区域地图tp2",
     "roi": [
-      418,
-      629,
-      438,
-      31
+      408,
+      622,
+      466,
+      47
     ],
     "expected": [
       "卢戈森林",
@@ -815,10 +819,10 @@
     "focus": "确认区域地图tp3",
     "post_delay": 200,
     "roi": [
-      418,
-      629,
-      438,
-      31
+      408,
+      622,
+      466,
+      47
     ],
     "expected": [
       "卢戈森林深处",
@@ -870,10 +874,10 @@
     ],
     "focus": "确认区域地图tp4",
     "roi": [
-      418,
-      629,
-      438,
-      31
+      408,
+      622,
+      466,
+      47
     ],
     "expected": [
       "商场1楼",

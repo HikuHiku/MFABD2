@@ -31,6 +31,8 @@
       0,
       0
     ],
+    "post_delay": 1000,
+    "post_wait_freezes": 500,
     "doc": "找到run-点击左上扫荡"
   },
   "Battle_Unmask": {
@@ -155,8 +157,8 @@
     "post_delay": 2000,
     "focus": "BM.航线-首选（异常！）",
     "target": [
-      341,
-      558,
+      138,
+      200,
       0,
       0
     ],
@@ -238,8 +240,8 @@
     "post_delay": 2000,
     "focus": "BM.航线-备选",
     "target": [
-      510,
-      531,
+      138,
+      280,
       0,
       0
     ]
@@ -420,7 +422,6 @@
     "focus": "BB.付费米饭无AP弹窗"
   },
   "Battle_CollectMapDongXue": {
-    "recognition": "OCR",
     "action": "Click",
     "next": [
       "Battle_CollectMapDongXueCK",
@@ -428,16 +429,12 @@
     ],
     "timeout": 3000,
     "focus": "BM.圣石洞穴",
-    "roi": [
-      390,
-      446,
-      100,
-      91
-    ],
-    "expected": [
-      "火之洞穴"
-    ],
-    "doc": "A-3.选择圣石洞穴"
+    "target": [
+      138,
+      355,
+      0,
+      0
+    ]
   },
   "Battle_CollectMapDongXueCK": {
     "recognition": "TemplateMatch",
@@ -633,7 +630,8 @@
       52
     ],
     "next": [
-      "Battle_CollectMapInitialize_Out_Ty2"
+      "Battle_CollectMapInitialize_Out_Ty2",
+      "Battle_CollectMapInitialize_Out_BedReset"
     ],
     "interrupt": [
       "Battle_MapLocReset_once"
@@ -642,14 +640,29 @@
       "可以获得"
     ]
   },
+  "Battle_CollectMapInitialize_Out_BedReset": {
+    "recognition": "OCR",
+    "focus": "BB.[ERROR]复位异常,野猪洞穴应在正中,请打通此狩猎场.]",
+    "roi": [
+      553,
+      330,
+      150,
+      82
+    ],
+    "expected": [
+      "废弃矿山"
+    ],
+    "timeout": 3000,
+    "on_error": []
+  },
   "Battle_CollectMapInitialize_Out_Ty2": {
     "recognition": "OCR",
     "focus": "BB.地图复位默认位置-Ty2复核",
     "roi": [
-      518,
-      241,
-      313,
-      225
+      553,
+      330,
+      150,
+      82
     ],
     "expected": [
       "野猪洞穴"

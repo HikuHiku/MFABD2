@@ -83,8 +83,8 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "Battle_FastBattleMAXTouchShouLie",
-      "Battle_NoAP_Rice"
+      "Battle_NoAP_Rice",
+      "Battle_FastBattleMAXTouchShouLie"
     ],
     "interrupt": [
       "Battle_QuickBattleButton"
@@ -168,8 +168,8 @@
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [
-      "Battle_FastBattleMAXTouchHangxian",
-      "Battle_NoAP_Rice"
+      "Battle_NoAP_Rice",
+      "Battle_FastBattleMAXTouchHangxian"
     ],
     "interrupt": [
       "Battle_QuickBattleButton"
@@ -250,8 +250,8 @@
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [
-      "Battle_FastBattleMAXTouchHangxian",
-      "Battle_NoAP_Rice"
+      "Battle_NoAP_Rice",
+      "Battle_FastBattleMAXTouchHangxian"
     ],
     "interrupt": [
       "Battle_QuickBattleButton"
@@ -311,6 +311,7 @@
   },
   "Battle_CollectMapHangXianDoubleCk2No_ToCentral_CK": {
     "next": [
+      "Battle_NoAP_Rice",
       "Battle_CollectMapShouLieR2"
     ],
     "roi": [
@@ -404,19 +405,21 @@
   },
   "Battle_NoAP_Rice": {
     "recognition": "OCR",
+    "action": "Click",
     "expected": [
-      "补充"
+      "取消"
     ],
     "roi": [
-      563,
-      403,
-      206,
-      155
+      534,
+      451,
+      77,
+      38
     ],
     "interrupt": [
       "Battle_CollectMapInitialize"
     ],
     "next": [
+      "Battle_NoAP_Rice",
       "Battle_CollectMapDongXue"
     ],
     "focus": "BB.付费米饭无AP弹窗"
@@ -455,8 +458,8 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "Battle_FastBattleMAXTouchDongXue",
-      "Battle_NoAP_Torch"
+      "Battle_NoAP_Torch",
+      "Battle_FastBattleMAXTouchDongXue"
     ],
     "interrupt": [
       "Battle_QuickBattleButton"
@@ -509,14 +512,15 @@
   "Battle_NoAP_Torch": {
     "doc": "付费火把用尽情况",
     "recognition": "OCR",
+    "action": "Click",
     "expected": [
-      "补充"
+      "取消"
     ],
     "roi": [
-      563,
-      403,
-      206,
-      155
+      534,
+      451,
+      77,
+      38
     ],
     "focus": "BB.付费火把无AP弹窗"
   },

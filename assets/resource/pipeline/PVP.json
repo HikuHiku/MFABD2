@@ -83,6 +83,7 @@
       "PVP_WorkaroundIn_Start"
     ],
     "post_delay": 4000,
+    "timeout": 50000,
     "focus": "PM.PVP卡带",
     "roi": [
       122,

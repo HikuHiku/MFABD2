@@ -68,23 +68,9 @@ class HistoryManager:
             print(f"❌ 获取Releases失败: {e}")
             sys.exit(1)
     
-        """解析版本号，带错误处理（支持内测版/开发版）"""
-        try:
-            # 提取基础版本号部分
-            # v2.3.7-beta.251112.b91bb42 → v2.3.7 → (2, 3, 7)
-            base_tag = re.sub(r'(-beta\.\d+\.[a-f0-9]+|-ci\.\d+\.[a-f0-9]+)$', '', tag)
-            clean_tag = base_tag.lstrip('v')
-            parts = clean_tag.split('.')
-            if len(parts) != 3:
-                raise ValueError(f"版本格式异常: {tag}")
-            return tuple(int(part) for part in parts)
-        except Exception as e:
-            print(f"❌ 版本解析失败: {tag} - {e}")
-            sys.exit(1)
-    
-def remove_duplicate_releases(self, releases: List[Dict]) -> List[Dict]:
-    print(f"保留所有 {len(releases)} 个版本（去重逻辑已禁用）")
-    return releases
+    def remove_duplicate_releases(self, releases: List[Dict]) -> List[Dict]:
+        print(f"保留所有 {len(releases)} 个版本（去重逻辑已禁用）")
+        return releases
 
     def get_minor_version_series(self, current_tag: str) -> List[Dict]:
         """获取同次版本的所有正式版Release"""
@@ -138,44 +124,44 @@ def remove_duplicate_releases(self, releases: List[Dict]) -> List[Dict]:
         print(f"找到 {len(relevant_releases)} 个相关历史版本")
         return relevant_releases
     
-def truncate_release_body(self, body: str) -> str:
-    """截断Release正文 - 修复版：基于CDK链接和构建信息"""
-    if not body:
-        return ""
-    
-    body = body.strip()
-    
-    # 第一优先级：CDK链接（用户内容结束标志）
-    cdk_patterns = [
-        r'\[已有 Mirror酱 CDK[^\]]*\]\([^)]+\)',
-        r'\[Mirror酱 CDK[^\]]*\]\([^)]+\)',
-    ]
-    
-    for pattern in cdk_patterns:
-        cdk_match = re.search(pattern, body)
-        if cdk_match:
-            truncated = body[:cdk_match.start()].strip()
-            print(f"使用CDK链接截断，长度: {len(truncated)}")
+    def truncate_release_body(self, body: str) -> str:
+        """截断Release正文 - 修复版：基于CDK链接和构建信息"""
+        if not body:
+            return ""
+        
+        body = body.strip()
+        
+        # 第一优先级：CDK链接（用户内容结束标志）
+        cdk_patterns = [
+            r'\[已有 Mirror酱 CDK[^\]]*\]\([^)]+\)',
+            r'\[Mirror酱 CDK[^\]]*\]\([^)]+\)',
+        ]
+        
+        for pattern in cdk_patterns:
+            cdk_match = re.search(pattern, body)
+            if cdk_match:
+                truncated = body[:cdk_match.start()].strip()
+                print(f"使用CDK链接截断，长度: {len(truncated)}")
+                return truncated
+        
+        # 第二优先级：构建信息（自动化内容开始）
+        build_info_match = re.search(r'\*\*构建信息\*\*:', body)
+        if build_info_match:
+            truncated = body[:build_info_match.start()].strip()
+            print(f"使用构建信息截断，长度: {len(truncated)}")
             return truncated
-    
-    # 第二优先级：构建信息（自动化内容开始）
-    build_info_match = re.search(r'\*\*构建信息\*\*:', body)
-    if build_info_match:
-        truncated = body[:build_info_match.start()].strip()
-        print(f"使用构建信息截断，长度: {len(truncated)}")
-        return truncated
-    
-    # 第三优先级：历史版本标记（历史内容开始）
-    historical_marker = "## 历史版本更新内容"
-    marker_pos = body.find(historical_marker)
-    if marker_pos != -1:
-        truncated = body[:marker_pos].strip()
-        print(f"使用历史版本标记截断，长度: {len(truncated)}")
-        return truncated
-    
-    # 保底：返回完整内容
-    print(f"使用完整内容，长度: {len(body)}")
-    return body
+        
+        # 第三优先级：历史版本标记（历史内容开始）
+        historical_marker = "## 历史版本更新内容"
+        marker_pos = body.find(historical_marker)
+        if marker_pos != -1:
+            truncated = body[:marker_pos].strip()
+            print(f"使用历史版本标记截断，长度: {len(truncated)}")
+            return truncated
+        
+        # 保底：返回完整内容
+        print(f"使用完整内容，长度: {len(body)}")
+        return body
     
     def remove_duplicate_cdk_links(self, body: str) -> str:
         """移除重复的CDK链接，只保留一个"""

@@ -220,7 +220,7 @@ def add_historical_versions(current_changelog: str, current_tag: str) -> str:
         manager = HistoryManager(github_token, repo_owner, repo_name)
         
         # 获取同次版本的历史Release
-        historical_releases = manager.get_minor_version_releases(current_tag)
+        historical_releases = manager.get_minor_version_series(current_tag)
         
         if not historical_releases:
             print("没有找到相关历史版本")

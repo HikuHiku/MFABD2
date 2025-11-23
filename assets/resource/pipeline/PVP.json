@@ -62,7 +62,7 @@
       48
     ],
     "expected": [
-      "玩法游戏卡"
+      "^(?=.*[玩法])(?=.*[游戏])(?=.*[卡]).{3,12}$"
     ],
     "doc": "分组正则待适配"
   },
@@ -146,7 +146,7 @@
       "PVP_PVPMes2",
       "PVP_PerOperationsMain_Error"
     ],
-    "doc": "防止弹窗滞后,设置两个一样的节点.| 此处int为消除弹窗",
+    "doc": "防止弹窗滞后,设置两个一样的节点.| 此处int为消除弹窗"
   },
   "PVP_Sandplay_Again": {
     "recognition": "TemplateMatch",
@@ -418,10 +418,10 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "PVP_AutoBattleStart"
+      "PVP_AutoBattleMAX_CK",
+      "PVP_AutoBattleMAX"
     ],
     "post_delay": 1000,
-    "focus": "PM.PVP.场次确认",
     "roi": [
       826,
       421,
@@ -432,12 +432,113 @@
       "MAX"
     ],
     "target": [
-      425,
+      865,
       435,
       0,
       0
     ],
     "doc": "点击MAX Mini"
+  },
+  "PVP_AutoBattleMAX_CK": {
+    "next": [
+      "PVP_Multiplier_Verify"
+    ],
+    "recognition": "ColorMatch",
+    "roi": [
+      839,
+      501,
+      31,
+      42
+    ],
+    "upper": [
+      255,
+      255,
+      255
+    ],
+    "lower": [
+      218,
+      218,
+      205
+    ],
+    "count": 500,
+    "focus": "PM.MAX确认"
+  },
+  "PVP_Multiplier_Verify": {
+    "recognition": "OCR",
+    "roi": [
+      844,
+      186,
+      96,
+      36
+    ],
+    "expected": [
+      "10"
+    ],
+    "replace": [
+      [
+        "倍",
+        ""
+      ]
+    ],
+    "next": [
+      "PVP_AutoBattleStart"
+    ],
+    "timeout": 3000,
+    "on_error": [
+      "PVP_Multiplier_Adjust_Gomenu"
+    ]
+  },
+  "PVP_Multiplier_Adjust_Gomenu": {
+    "action": "Click",
+    "target": [
+      919,
+      206,
+      0,
+      0
+    ],
+    "focus": "PM.倍率检查不通过,调整旁路启用",
+    "next": [
+      "PVP_Multiplier_Adjust_Set"
+    ],
+    "post_wait_freezes": 500
+  },
+  "PVP_Multiplier_Adjust_Set": {
+    "recognition": "OCR",
+    "expected": "^(?=.*[设置])(?=.*[鲜血鸡尾酒])(?=.*[消耗量]).{4,12}$",
+    "roi": [
+      451,
+      101,
+      379,
+      184
+    ],
+    "action": "Click",
+    "target": [
+      812,
+      353,
+      0,
+      0
+    ],
+    "next": [
+      "PVP_Multiplier_Adjust_Enter"
+    ],
+    "post_delay": 500,
+    "doc": "默认10倍"
+  },
+  "PVP_Multiplier_Adjust_Enter": {
+    "next": [
+      "PVP_Multiplier_Adjust_Enter",
+      "PVP_AutoBattleStart"
+    ],
+    "recognition": "OCR",
+    "expected": "确认",
+    "roi": [
+      596,
+      448,
+      209,
+      167
+    ],
+    "post_wait_freezes": 500,
+    "action": "Click"
   },
   "PVP_AutoBattleStart": {
     "recognition": "OCR",

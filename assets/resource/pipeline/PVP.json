@@ -5,6 +5,10 @@
       "PVP_PullUp_QuickCart"
     ],
     "interrupt": [
+      "PVP_PerPetTask",
+      "PVP_PVPMes",
+      "PVP_PVPMes2",
+      "PVP_PerOperationsMain_Error",
       "Global_ToSandBox"
     ],
     "timeout": 5000,
@@ -90,8 +94,8 @@
     "recognition": "TemplateMatch",
     "action": "Click",
     "next": [
-      "PVP_Sandplay",
-      "PVP_PullUp_QuickCart_PVP"
+      "PVP_PullUp_QuickCart_PVP",
+      "PVP_HUB_Sandplay"
     ],
     "post_delay": 3000,
     "timeout": 50000,
@@ -105,13 +109,19 @@
     "template": [
       "QuickCart_PVP.png"
     ],
-    "target_offset": [
-      -35,
-      25,
-      0,
-      0
-    ],
     "doc": ""
+  },
+  "PVP_HUB_Sandplay": {
+    "next": [
+      "PVP_Sandplay"
+    ],
+    "interrupt": [
+      "PVP_PerPetTask",
+      "PVP_PVPMes",
+      "PVP_PVPMes2",
+      "PVP_PerOperationsMain_Error"
+    ],
+    "focus": "PM.HUB(0/2)"
   },
   "PVP_Sandplay": {
     "recognition": "TemplateMatch",
@@ -124,17 +134,26 @@
       173,
       32
     ],
-    "focus": "PM.PVP箱庭确认",
+    "threshold": 0.8,
+    "focus": "PM.PVP箱庭确认,(1/2)",
     "post_delay": 5000,
     "next": [
       "PVP_Sandplay_Again"
-    ]
+    ],
+    "interrupt": [
+      "PVP_PerPetTask",
+      "PVP_PVPMes",
+      "PVP_PVPMes2",
+      "PVP_PerOperationsMain_Error"
+    ],
+    "doc": "防止弹窗滞后,设置两个一样的节点.| 此处int为消除弹窗",
   },
   "PVP_Sandplay_Again": {
     "recognition": "TemplateMatch",
     "template": [
       "pvp_Medals.png"
     ],
+    "threshold": 0.8,
     "roi": [
       612,
       29,
@@ -150,9 +169,11 @@
       "PVP_PVPMes2",
       "PVP_PerOperationsMain_Error",
       "PVP_InsandboxAndlocAbnormal",
-      "PVP_PVPStart"
+      "PVP_PVPStart",
+      "PVP_Sandplay_NoFindSrena"
     ],
-    "focus": "PM.PVP箱庭确认-再次"
+    "focus": "PM.PVP箱庭确认,(2/2)",
+    "doc": "第二次已确认,1/除消除弹窗,2/还要进入舞台,3/复位异常位置"
   },
   "PVP_InsandboxAndlocAbnormal": {
     "recognition": "TemplateMatch",
@@ -285,14 +306,8 @@
   },
   "PVP_JustUseFree": {
     "next": [
+      "PVP_JustUseFreeNO",
       "PVP_JustUseFreeOK"
-    ],
-    "interrupt": [
-      "PVP_JustUseFreeNO"
-    ],
-    "timeout": 8000,
-    "on_error": [
-      "PVP_JustUseFree2"
     ],
     "focus": "PM.PVP.开始验证免费鸡尾酒策略"
   },
@@ -324,6 +339,13 @@
     "doc": "识别是否仅用免费鸡尾酒"
   },
   "PVP_JustUseFreeNO": {
+    "next": [
+      "PVP_JustUseFreeOK"
+    ],
+    "timeout": 8000,
+    "on_error": [
+      "PVP_JustUseFree2"
+    ],
     "recognition": "ColorMatch",
     "action": "Click",
     "focus": "PM.PVP.免费AP未勾选！",
@@ -681,6 +703,22 @@
       "确认"
     ]
   },
+  "PVP_Sandplay_NoFindSrena": {
+    "doc": "如果1不是结算页面,2找不到舞台物件.尝试点击箱庭内其他特征物变换位置",
+    "recognition": "TemplateMatch",
+    "action": "Click",
+    "focus": "null",
+    "template": [
+      "pvp_nofind_UT_bk.png",
+      "pvp_nofind_ut_bk2.png",
+      "pvp_nofind_UT_ft.png",
+      "pvp_nofind_UT_Rt.png",
+      "pvp_nofind_twoaudience.png",
+      "pvp_nofind_waiter_fr.png",
+      "pvp_nofind_aman_sit.png"
+    ],
+    "post_delay": 5000
+  },
   "PVP_WorkaroundIn_Start": {
     "next": [
       "PVP_WorkaroundIn_CkAtPass",
@@ -863,7 +901,7 @@
     "action": "Click",
     "next": [
       "Pass_WorkaroundIn_TyrFindButt_Find_Ocr",
-      "PVP_Sandplay"
+      "PVP_HUB_Sandplay"
     ],
     "focus": "PWB.路径发现,点击-OCR"
   },
@@ -913,7 +951,7 @@
     "action": "Click",
     "next": [
       "Pass_WorkaroundIn_TyrFindButt_Find_Tmp",
-      "PVP_Sandplay"
+      "PVP_HUB_Sandplay"
     ],
     "focus": "PWB.路径发现,点击-Tmp"
   },

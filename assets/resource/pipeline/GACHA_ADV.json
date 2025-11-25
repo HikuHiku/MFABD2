@@ -1595,7 +1595,7 @@
     "recognition": "OCR",
     "action": "Click",
     "next": [
-      "GachaADV_BackMapPage",
+      "GachaADV_EndToHomePage",
       "GachaADV_FinGacha"
     ],
     "post_delay": 3000,
@@ -1617,10 +1617,8 @@
     ],
     "doc": "返回首页"
   },
-  "GachaADV_BackMapPage": {
+  "GachaADV_EndToHomePage": {
     "recognition": "OCR",
-    "action": "Click",
-    "post_delay": 1000,
     "roi": [
       98,
       656,
@@ -1629,12 +1627,6 @@
     ],
     "expected": [
       "抽抽乐"
-    ],
-    "target": [
-      135,
-      40,
-      0,
-      0
     ],
     "doc": "识别左下抽抽乐-返回地图页"
   }

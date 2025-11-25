@@ -1086,7 +1086,7 @@
       186,
       419,
       173,
-      82
+      107
     ],
     "count": 5000,
     "lower": [
@@ -1113,6 +1113,7 @@
       173,
       80
     ],
+    "timeout": 5000,
     "template": [
       "Gachalistend_ADV.png",
       "Gachalistend_ADV2.png",
@@ -1132,6 +1133,7 @@
       173,
       82
     ],
+    "timeout": 5000,
     "template": [
       "Gachalistend_ADV.png",
       "Gachalistend_ADV2.png",
@@ -1151,6 +1153,7 @@
       173,
       82
     ],
+    "timeout": 5000,
     "template": [
       "Gachalistend_ADV.png",
       "Gachalistend_ADV2.png",
@@ -1168,8 +1171,9 @@
       186,
       419,
       173,
-      82
+      107
     ],
+    "timeout": 5000,
     "template": [
       "Gachalistend_ADV.png",
       "Gachalistend_ADV2.png",
@@ -1192,7 +1196,7 @@
       462,
       297
     ],
-    "threshold": 0.8,
+    "threshold": 0.7,
     "next": [
       "GachaADV_SpecialCountButton"
     ],

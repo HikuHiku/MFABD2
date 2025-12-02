@@ -1,0 +1,886 @@
+{
+    "actions": [
+        {
+            "data": "{\"cmd\":\"detect_app\",\"params\":{\"app\":\"BrownDust II\",\"package\":\"com.neowizgames.game.browndust2\"}}",
+            "extra1": "",
+            "extra2": "",
+            "timing": 0,
+            "type": "vcontrol"
+        },
+        {
+            "data": "release",
+            "extra1": "5",
+            "extra2": "",
+            "timing": 9,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "4",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "7",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "0",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "3",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "4",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "5",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "6",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "7",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "8",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "9",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "10",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "11",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "12",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "13",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "14",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "15",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "16",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "17",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1558,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.122917,1.34444)",
+            "extra1": "11",
+            "extra2": "",
+            "timing": 703,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "11",
+            "extra2": "",
+            "timing": 80,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1760,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 16,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 96,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 192,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.413542,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 80,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 240,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 624,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 368,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1360,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 576,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.053125,1.39537)",
+            "extra1": "11",
+            "extra2": "",
+            "timing": 5840,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "11",
+            "extra2": "",
+            "timing": 128,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 657,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.413542,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 271,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 336,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.413542,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 272,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 432,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,1.13148)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 96,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1056,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 16,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 688,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1088,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1120,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 704,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 528,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,1.13148)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 592,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1312,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 448,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 480,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 192,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 128,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 480,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 641,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,1.13148)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 32,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 479,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,1.13148)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 448,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 256,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 80,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 416,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 112,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 496,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,1.13148)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 80,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,1.06111)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1072,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 48,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 385,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 192,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 431,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 928,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 144,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 320,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 272,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.413542,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 17,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 751,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,0.65)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 48,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.373958,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 384,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.413542,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 784,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 640,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.278125,1.13148)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 593,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 223,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.491146,0.337963)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 2584,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 92,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.414063,0.446296)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 1021,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 86,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.280208,0.462963)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 7466,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 89,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.163021,1.21759)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 1679,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 88,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.258854,1.41204)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 1998,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.259375,1.41204)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 29,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 54,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.484375,0.322222)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 2209,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 98,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.489063,0.475)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 2483,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 84,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.167187,0.714815)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 17296,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 56,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.453646,0.422222)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 1868,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 76,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.495312,0.322222)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 2977,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 84,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.339062,0.451852)",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 1588,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 81,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 18026,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.182292,0.72037)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 528,
+            "type": "touch"
+        },
+        {
+            "data": "press_rel:(0.142708,0.890741)",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 1536,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 624,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "5",
+            "extra2": "",
+            "timing": 3227,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "4",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "7",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "0",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "1",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "2",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "3",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "4",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "5",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "6",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "7",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "8",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "9",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        },
+        {
+            "data": "release",
+            "extra1": "10",
+            "extra2": "",
+            "timing": 0,
+            "type": "touch"
+        }
+    ],
+    "info": {
+        "create_time": 1764580971031,
+        "package_name": "com.neowizgames.game.browndust2",
+        "resolution_x": 1920,
+        "resolution_y": 1080,
+        "total_running_time": 102825
+    }
+}

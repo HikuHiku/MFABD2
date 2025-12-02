@@ -1,0 +1,627 @@
+{
+  "taskes": [
+    {
+      "action": "TouchDown",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 1558000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 968,
+      "y": 563,
+      "contact": 11,
+      "timing_ns": 2261000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 11,
+      "timing_ns": 2341000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 4101000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 4117000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 4213000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 4405000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 191,
+      "contact": 2,
+      "timing_ns": 4485000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 4725000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 5349000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 5717000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 7077000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 2,
+      "timing_ns": 7653000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 1005,
+      "y": 652,
+      "contact": 11,
+      "timing_ns": 13493000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 11,
+      "timing_ns": 13621000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 14278000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 191,
+      "contact": 2,
+      "timing_ns": 14549000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 14885000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 191,
+      "contact": 2,
+      "timing_ns": 15157000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 15589000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 815,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 15685000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 16741000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 16757000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 17445000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 18533000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 19653000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 20357000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 20885000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 815,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 21477000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 22789000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 23237000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 23717000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 23909000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 24037000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 24517000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 2,
+      "timing_ns": 25158000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 815,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 25190000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 25669000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 815,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 26117000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 26373000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 26453000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 26869000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 26981000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 27477000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 815,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 27557000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 764,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 28629000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 28677000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 29062000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 29254000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 29685000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 30613000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 30757000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 31077000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 31349000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 191,
+      "contact": 2,
+      "timing_ns": 31366000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 32117000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 468,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 32165000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 241,
+      "contact": 2,
+      "timing_ns": 32549000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 191,
+      "contact": 2,
+      "timing_ns": 33333000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 2,
+      "timing_ns": 33973000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 815,
+      "y": 364,
+      "contact": 2,
+      "timing_ns": 34566000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 2,
+      "timing_ns": 34789000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 243,
+      "y": 91,
+      "contact": 1,
+      "timing_ns": 37373000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 37465000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 321,
+      "y": 190,
+      "contact": 1,
+      "timing_ns": 38486000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 38572000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 333,
+      "y": 361,
+      "contact": 1,
+      "timing_ns": 46038000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 46127000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 877,
+      "y": 511,
+      "contact": 1,
+      "timing_ns": 47806000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 47894000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 1017,
+      "y": 389,
+      "contact": 1,
+      "timing_ns": 49892000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 1017,
+      "y": 388,
+      "contact": 1,
+      "timing_ns": 49921000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 49975000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 232,
+      "y": 100,
+      "contact": 1,
+      "timing_ns": 52184000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 52282000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 342,
+      "y": 94,
+      "contact": 1,
+      "timing_ns": 54765000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 54849000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 515,
+      "y": 506,
+      "contact": 1,
+      "timing_ns": 72145000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 72201000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 304,
+      "y": 139,
+      "contact": 1,
+      "timing_ns": 74069000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 74145000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 232,
+      "y": 86,
+      "contact": 1,
+      "timing_ns": 77122000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 77206000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 325,
+      "y": 286,
+      "contact": 1,
+      "timing_ns": 78794000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 1,
+      "timing_ns": 78875000000
+    },
+    {
+      "action": "TouchDown",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 96901000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 519,
+      "y": 487,
+      "contact": 2,
+      "timing_ns": 97429000000
+    },
+    {
+      "action": "TouchMove",
+      "x": 641,
+      "y": 537,
+      "contact": 2,
+      "timing_ns": 98965000000
+    },
+    {
+      "action": "TouchUp",
+      "x": 0,
+      "y": 0,
+      "contact": 2,
+      "timing_ns": 99589000000
+    }
+  ]
+}
